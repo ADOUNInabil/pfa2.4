@@ -1,0 +1,158 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN SAMPLE TABLE PORTLET-->
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-comments"></i>Gestion alert </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+                        <a href="javascript:;" class="reload"> </a>
+                        <a href="javascript:;" class="remove"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+
+                    <table class="table table-striped table-bordered table-hover table-checkable order-column">
+                        <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> Type d'alert </th>
+                            <th> Date </th>
+                            <th> Ligne </th>
+                            <th> Emplacement </th>
+                            <th> Details </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="active">
+                            <td> 1 </td>
+                            <td> active </td>
+                            <td> 11/07/2017 </td>
+                            <td> Block A1 </td>
+                            <td> Assemblage </td>
+                            <td>
+                                <a href="javascript:;" class="btn dark btn-sm btn-outline sbold uppercase">
+                                    <i class="fa fa-share"></i> View </a>
+
+
+
+                                <div class="btn-group">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-left" role="menu">
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-bell"></i> notifier</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-shield"></i> ignorer</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr class="success">
+                            <td> 2 </td>
+                            <td> success </td>
+                            <td> 11/07/2017 </td>
+                            <td> Block B1 </td>
+                            <td> Test </td>
+                            <td>
+                                <a href="javascript:;" class="btn dark btn-sm btn-outline sbold uppercase">
+                                    <i class="fa fa-share"></i> View </a>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-left" role="menu">
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-bell"></i> notifier</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-shield"></i> ignorer</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr class="warning">
+                            <td> 3 </td>
+                            <td> warning </td>
+                            <td> 11/07/2017 </td>
+                            <td> Block C1 </td>
+                            <td> Assemblage </td>
+                            <td>
+                                <a href="javascript:;" class="btn dark btn-sm btn-outline sbold uppercase">
+                                    <i class="fa fa-share"></i> View </a>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-left" role="menu">
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-bell"></i> notifier</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-shield"></i> ignorer</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </td>
+                        </tr>
+                        <tr class="danger">
+                            <td> 4 </td>
+                            <td> danger </td>
+                            <td> 11/07/2017 </td>
+                            <td> Block A1 </td>
+                            <td> Assemblage </td>
+                            <td>
+                                <a href="javascript:;" class="btn dark btn-sm btn-outline sbold uppercase">
+                                    <i class="fa fa-share"></i> View </a>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+                                        <i class="fa fa-angle-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-left" role="menu">
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-bell"></i> notifier</a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:;">
+                                                <i class="icon-shield"></i> ignorer</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+            <!-- END SAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+
+{% endblock %}

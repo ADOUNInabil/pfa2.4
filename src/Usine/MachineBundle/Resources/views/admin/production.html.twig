@@ -1,0 +1,538 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+
+
+
+    <!-- END THEME LAYOUT SCRIPTS -->
+    <style>
+        #chartdiv {
+            width: 100%;
+            height: 500px;
+            angle:89;
+            topRadius:0;
+        }
+    </style>
+
+
+    <h1 class="page-title"> Production Dashboard
+        <small>statistics, charts, recent events and reports </small>
+    </h1>
+
+    <!-- END PAGE HEADER-->
+
+    <!-- -->
+
+    <!-- -->
+
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <div class="portlet light portlet-fit">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-map font-green"></i>
+                        <span class="caption-subject bold font-green uppercase"> Enterprise Planning</span>
+
+                    </div>
+                </div>
+                <!--BLOCK A  -->
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="plan">
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title" style="background-color :#bfcad1 ;">
+                                    <div class="caption">
+                                        <!-- <i class="icon-map font-green"></i> -->
+                                        Placement :
+                                        <strong>A</strong>
+                                    </div>
+                                </div>
+                                <div class="portlet-body util-btn-margin-bottom-5">
+                                    <div class="clearfix">
+
+                                        <div align="right" >
+
+
+                                                <button class="btn1" style="vertical-align:middle" onclick="location.href='{{ path('details',{nom:1}) }}'"><span>A10 </span></button>
+
+                                        </div>
+
+                                        <div align="right">
+
+
+                                                <button class="btn1" onclick="location.href='{{ path('details',{nom:2}) }}'"><span>A25 </span></button>
+
+                                        </div>
+
+                                        <div align="right" >
+
+
+                                                <button class="btn1" style="width:75px" onclick="location.href='{{ path('details',{nom:3}) }}'"><span>A99 </span></button>
+
+                                        </div>
+
+                                        <div style="float:left">
+
+
+                                                <button class="btn3" onclick="location.href='{{ path('details',{nom:4}) }}'"><span> A116 </span></button>
+
+                                        </div>
+
+                                        <div class="marg" style="float:left; margin-left:20px;">
+
+                                                <button id="A117" class="btn3" onclick="location.href='{{ path('details',{nom:5}) }}'"><span> A117 </span></button>
+
+                                        </div>
+
+                                        <div style="float:right">
+                                            <form action="detailsl16.php" method="post">
+                                                <button class="btn3"><span> A118 </span></button>
+                                            </form>
+                                        </div>
+
+
+
+                                        <div align="center">
+                                            <button class="btn1" style="width:100%;background-color:#000;"><span>A17 </span></button>
+                                        </div>
+
+                                        <div align="right">
+                                            <button class="btn3" style="margin-right:30px"><span> A1 </span></button>
+                                        </div>
+
+                                        <div align="right">
+                                            <button class="btn2"><span>A3 </span></button>
+                                        </div>
+
+                                        <div style="float:right">
+                                            <button class="btn1" style="width:50px;height:150px;background-color:#000;margin-right:15px"><span>A30 </span></button>
+                                        </div>
+
+                                        <div style="float:left">
+                                            <button class="btn1" style="width:140px;height:100px"><span>A100 </span></button>
+                                        </div>
+
+
+                                        <!-- <button type="button" class="btn red">Red</button>
+                                         <button type="button" class="btn blue-madison">Blue Madison</button>
+                                         <button type="button" class="btn green">Right</button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--FIN BLOCK A  -->
+                        <!--BLOCK B  -->
+                        <div class="plan">
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title" style="background-color :#bfcad1 ;">
+                                    <div class="caption">
+                                        <!-- <i class="icon-map font-green"></i> -->
+                                        Placement :
+                                        <strong>B</strong>
+                                    </div>
+                                </div>
+                                <div class="portlet-body util-btn-margin-bottom-5">
+                                    <div class="clearfix">
+
+
+                                        <button class="btn1" id="B1" style="background-color:#000;float:left;width:70px"><span> B1 </span></button>
+
+
+
+                                        <button class="btn1" id="B2" style="width:70px;float:left;"><span> B2 </span></button>
+
+
+
+                                        <button class="btn1" style="width:80px;float:right;"><span> B3 </span></button>
+
+
+
+                                        <button class="btn1" style="width:100px;float:left;margin-left:10px"><span> B4 </span></button>
+
+
+
+                                        <button class="btn1" style="width:80px;float:right;" ><span> B5 </span></button>
+
+
+                                        <div align="right">
+                                            <button class="btn1" style="height:70px"><span> B6 </span></button>
+                                        </div>
+                                        <br><br>
+
+                                        <div align="center">
+                                            <button class="btn1" style="width:80px;height:80px;margin-right:20px"><span> B20 </span></button>
+                                            <button class="btn1" style="width:80px;height:80px;margin-left:20px"><span> B21 </span></button>
+                                        </div>
+
+                                        <div align="center">
+                                            <button class="btn1" style="width:80px;height:80px;margin-right:20px"><span> B30 </span></button>
+                                            <button class="btn1" style="width:80px;height:80px;margin-left:20px"><span> B31 </span></button>
+                                        </div>
+
+                                        <div align="center">
+                                            <button class="btn1" style="width:80px;height:80px;margin-right:20px"><span> B40 </span></button>
+                                            <button class="btn1" style="width:80px;height:80px;margin-left:20px"><span> B41 </span></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--FIN BLOCK B  -->
+                        <!--BLOCK C  -->
+                        <div class="plan">
+                            <div class="portlet light portlet-fit ">
+                                <div class="portlet-title" style="background-color :#bfcad1 ;">
+                                    <div class="caption">
+                                        <!-- <i class="icon-map font-green"></i> -->
+                                        Placement :
+                                        <strong>C</strong>
+                                    </div>
+                                </div>
+                                <div class="portlet-body util-btn-margin-bottom-5">
+                                    <div class="clearfix">
+
+                                        <button class="btn1" style="width:160px;height:180px"><span>C1 </span></button>
+
+                                        <button class="btn1" style="float:right;width:60px;height:180px;background-color:#000;"><span>C2 </span></button>
+
+                                        <div align="left"><br><br><br>
+                                            <button class="btn2" style="width:60px;height:220px;"><span>C3 </span></button>
+                                            <button class="btn2" style="width:60px;height:220px;"><span>C4 </span></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div align="center">
+                            <div class="legende">
+                                <span class="circle"></span> <strong class="legend-text">normal operation</strong>
+                                <span class="circle red"></span> <strong class="legend-text">available not in use</strong>
+                                <span class="circle black"></span> <strong class="legend-text">no planned operation</strong>
+                                <span class="circle grey"></span> <strong class="legend-text">not use</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--FIN BLOCK C  -->
+
+
+
+
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="float:left;">
+            <div class="clearfix">
+                <div class="dashboard-stat2 ">
+                    <div class="display">
+                        <div class="number">
+                            <h3 class="font-green-sharp">
+                                <span data-counter="counterup" data-value="7800">7800</span>
+                                <small class="font-green-sharp">$</small>
+                            </h3>
+                            <small>TOTAL PROFIT</small>
+                        </div>
+                        <div class="icon">
+                            <i class="icon-pie-chart"></i>
+                        </div>
+                    </div>
+                    <div class="progress-info">
+                        <div class="progress">
+                                        <span style="width: 76%;" class="progress-bar progress-bar-success green-sharp">
+                                            <span class="sr-only">76% progress</span>
+                                        </span>
+                        </div>
+                        <div class="status">
+                            <div class="status-title"> progress </div>
+                            <div class="status-number"> 76% </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="float:left;">
+            <div class="dashboard-stat2 ">
+                <div class="display">
+                    <div class="number">
+                        <h3 class="font-red-haze">
+                            <span data-counter="counterup" data-value="6">0</span>
+                        </h3>
+                        <small>WORKING MACHINES</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-like"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                                        <span style="width: 85%;" class="progress-bar progress-bar-success red-haze">
+                                            <span class="sr-only">85% change</span>
+                                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title"> change </div>
+                        <div class="status-number"> 85% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="float:left;">
+            <div class="dashboard-stat2 ">
+                <div class="display">
+                    <div class="number">
+                        <h3 class="font-blue-sharp">
+                            <span data-counter="counterup" data-value="567"></span>
+                        </h3>
+                        <small>NEW ORDERS</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-basket"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                                        <span style="width: 45%;" class="progress-bar progress-bar-success blue-sharp">
+                                            <span class="sr-only">45% grow</span>
+                                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title"> grow </div>
+                        <div class="status-number"> 45% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="float:left;">
+            <div class="dashboard-stat2 ">
+                <div class="display">
+                    <div class="number">
+                        <h3 class="font-purple-soft">
+                            <span data-counter="counterup" data-value="276"></span>
+                        </h3>
+                        <small>NEW CLIENTS</small>
+                    </div>
+                    <div class="icon">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <div class="progress">
+                                        <span style="width: 57%;" class="progress-bar progress-bar-success purple-soft">
+                                            <span class="sr-only">56% change</span>
+                                        </span>
+                    </div>
+                    <div class="status">
+                        <div class="status-title"> change </div>
+                        <div class="status-number"> 57% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <!-- BEGIN CHART PORTLET-->
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-bar-chart font-green-haze"></i>
+                    <span class="caption-subject bold uppercase font-green-haze"> 3D Production Chart</span>
+                    <span class="caption-helper">Production par usine</span>
+                </div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"> </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+                    <a href="javascript:;" class="reload"> </a>
+                    <a href="javascript:;" class="fullscreen"> </a>
+                    <a href="javascript:;" class="remove"> </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="chartdiv"></div>
+
+            </div>
+        </div>
+        <!-- END CHART PORTLET-->
+    </div>
+
+
+    <!-- Pie CHART PORTLET-->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN CHART PORTLET-->
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-pie-chart  font-green-haze"></i>
+                        <span class="caption-subject bold uppercase font-green-haze"> 3D Chart</span>
+                        <span class="caption-helper">Pourcentage de production</span>
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+                        <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+                        <a href="javascript:;" class="reload"> </a>
+                        <a href="javascript:;" class="fullscreen"> </a>
+                        <a href="javascript:;" class="remove"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="chartdiv1" style="width: 100%; height: 400px;"></div>
+                    <table align="center" cellspacing="20">
+                        <tr>
+                            <td>
+                                <input type="radio" checked="true" name="group" id="rb1" onclick="setLabelPosition()">labels outside
+                                <input type="radio" name="group" id="rb2" onclick="setLabelPosition()">labels inside</td>
+                            <td> <strong style="color:#069CF9">| </strong>
+                                <input type="radio" name="group2" id="rb3" onclick="set3D()">3D
+                                <input type="radio" checked="true" name="group2" id="rb4" onclick="set3D()">2D</td>
+                            <td><strong style="color:#069CF9"> | </strong> Legend switch type:
+                                <input type="radio" checked="true" name="group3" id="rb5"
+                                       onclick="setSwitch()">x
+                                <input type="radio" name="group3" id="rb6" onclick="setSwitch()">v</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <!-- END CHART PORTLET-->
+        </div>
+
+    </div>
+
+
+
+
+    <!-- BEGIN CORE PLUGINS -->
+
+
+
+    <script>
+        var chart1 ;
+        chart1 = AmCharts.makeChart("chartdiv", {
+            "theme": "light",
+            "type": "serial",
+            "startDuration": 2,
+            "dataProvider": [
+                {% set values = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']%}
+                {% for b in blocks %}
+                {
+                "country": "{{ b.nomBlock }}",
+                "visits": {{ b.nbPieceTotale }},
+                "color":  "#{{random(values)~ random(values)~ random(values)~ random(values)~ random(values)~ random(values)  }}"
+            },
+                {% endfor %}
+               ],
+            "valueAxes": [{
+                "position": "left",
+                "axisAlpha":0,
+                "gridAlpha":0
+            }],
+            "graphs": [{
+                "balloonText": "[[category]]: <b>[[value]]</b>",
+                "colorField": "color",
+                "fillAlphas": 0.85,
+                "lineAlpha": 0.1,
+                "type": "column",
+                "topRadius":1,
+                "valueField": "visits"
+            }],
+            "depth3D": 40,
+            "angle": 30,
+            "chartCursor": {
+                "categoryBalloonEnabled": false,
+                "cursorAlpha": 0,
+                "zoomable": false
+            },
+            "categoryField": "country",
+            "categoryAxis": {
+                "gridPosition": "start",
+                "axisAlpha":0,
+                "gridAlpha":0
+
+            },
+            "export": {
+                "enabled": true
+            }
+
+        }, 0);
+    </script>
+    <script>
+
+        var chart;
+        var legend;
+
+        var chartData = [
+            {% for b in blocks %}
+            {
+                "Block": "{{ b.nomBlock }}",
+                "piece": {{ b.nbPieceTotale }}
+            },
+            {% endfor %}
+        ];
+
+        AmCharts.ready(function () {
+            // PIE CHART
+            chart = new AmCharts.AmPieChart();
+            chart.dataProvider = chartData;
+            chart.titleField = "Block";
+            chart.valueField = "piece";
+            chart.gradientRatio = [0, 0, 0 ,-0.2, -0.4];
+            chart.gradientType = "radial";
+
+            // LEGEND
+            legend = new AmCharts.AmLegend();
+            legend.align = "center";
+            legend.markerType = "circle";
+            chart.balloonText = "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>";
+            chart.addLegend(legend);
+
+            // WRITE
+            chart.write("chartdiv1");
+        });
+
+        // changes label position (labelRadius)
+        function setLabelPosition() {
+            if (document.getElementById("rb1").checked) {
+                chart.labelRadius = 30;
+                chart.labelText = "[[title]]: [[value]]";
+            } else {
+                chart.labelRadius = -30;
+                chart.labelText = "[[percents]]%";
+            }
+            chart.validateNow();
+        }
+
+
+        // makes chart 2D/3D
+        function set3D() {
+            if (document.getElementById("rb3").checked) {
+                chart.depth3D = 10;
+                chart.angle = 10;
+            } else {
+                chart.depth3D = 0;
+                chart.angle = 0;
+            }
+            chart.validateNow();
+        }
+
+        // changes switch of the legend (x or v)
+        function setSwitch() {
+            if (document.getElementById("rb5").checked) {
+                legend.switchType = "x";
+            } else {
+                legend.switchType = "v";
+            }
+            legend.validateNow();
+        }
+    </script>
+{% endblock %}

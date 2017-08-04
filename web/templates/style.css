@@ -1,0 +1,45 @@
+.welcometext{
+	
+	margin-top: 40px;
+	font-family: "Trebuchet MS";
+	color:gray ;
+	position: fixed;
+}
+
+
+.img1 {
+	position:relative;
+	width : 800px ;
+	height :500px ;
+}
+.img2 {
+	visibility:hidden ;
+	position:absolute;
+	width : 800px ;
+	height :500px ;
+}
+.img3 {
+	visibility:hidden ;
+	position:absolute;
+	width : 800px ;
+	height :500px ;
+}
+.img4{
+	visibility:hidden ;
+	position:absolute;
+	width : 800px ;
+	height :500px ;
+}
+.info {
+	position:absolute;
+	transform :translate(280px,-600px);
+	width : 200px ;
+	height :300px ;
+	
+}
+.welcomepage {
+	position: fixed; /* or absolute */
+  	top: 20%;
+  	left: 20%;
+	
+}

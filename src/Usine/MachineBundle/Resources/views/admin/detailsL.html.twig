@@ -1,0 +1,310 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="../assets/pages/scripts/table-datatables-editable.min.js" type="text/javascript"></script>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-pie-chart  font-green-haze"></i>
+                        <span class="caption-subject bold uppercase font-green-haze"> </span>
+                        <span class="caption-helper">Details</span>
+                    </div>
+
+
+
+                </div>
+                <div class="portlet-body">
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-8">
+
+                            <div class="info">
+                                <div class="portlet light portlet-fit ">
+                                    <div class="portlet-title" style="background-color :#bfcad1 ;">
+
+                                        Block map
+                                    </div>
+                                    <div class="portlet-body util-btn-margin-bottom-5">
+                                        <div class="clearfix">
+                                            <div class="block3" align="center">
+
+
+                                                {% for m in machines %}
+                                                <div class="col-md-2 col-lg-2" style="float:left;">
+                                                    {% if m.type == "assemblage" %}
+                                                    {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
+                                                    <a class="dashboard-stat dashboard-stat-v2 green" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" href="#">
+                                                        {% else %}
+                                                        <a class="dashboard-stat dashboard-stat-v2 green" id="dash2" style="border-bottom: 7px solid red;width:100px;" href="#">
+                                                            {% endif %}
+                                                        <div class="visual">
+
+                                                            <i class="fa fa-cogs"></i>
+                                                        </div>
+                                                    {% endif %}
+
+                                                            {% if m.type == "test" %}
+                                                            {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
+                                                            <a class="dashboard-stat dashboard-stat-v2 blue" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" href="#">
+                                                                {% else %}
+                                                                <a class="dashboard-stat dashboard-stat-v2 blue" id="dash2" style="border-bottom: 7px solid red;width:100px;" href="#">
+                                                                    {% endif %}
+                                                                    <div class="visual">
+
+                                                                        <i class="fa fa-flask"></i>
+                                                                    </div>
+                                                                    {% endif %}
+
+
+                                                                    {% if m.type == "decharge" %}
+                                                                    {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
+                                                                    <a class="dashboard-stat dashboard-stat-v2 purple" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" href="#">
+                                                                        {% else %}
+                                                                        <a class="dashboard-stat dashboard-stat-v2 purple" id="dash2" style="border-bottom: 7px solid red;width:100px;" href="#">
+                                                                            {% endif %}
+                                                                            <div class="visual">
+
+                                                                                <i class="fa fa-dropbox"></i>
+                                                                            </div>
+                                                                            {% endif %}
+
+
+                                                        <div class="details">
+
+                                                            <div class="number">
+                                                                <span data-counter="counterup" data-value="{{ m.nbPieceBonne }}">0</span>
+                                                            </div>
+                                                            <div class="desc"> Piéces <br> <p>{{ m.nomMachine }}</p></div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                {% endfor %}
+
+
+
+                                                <i class="fa fa-arrow-right fa-5x" aria-hidden="true" style="float:left;margin-top:50px;margin-left:20px;"></i>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="col-xs-12 col-md-12 col-lg-4">
+
+                            <div class="info" id="p1">
+                                <div class="portlet light portlet-fit ">
+                                    <div class="portlet-title" style="background-color :#bfcad1 ;">
+
+                                        Block information
+                                    </div>
+                                    <div class="portlet-body util-btn-margin-bottom-5">
+                                        <div class="clearfix">
+                                            <div class="col-xs-4">
+
+
+                                                <div class="pourcentage">
+                                                    <span class="glyphicon glyphicon-triangle-top green" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">15</strong>%<br>Production
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-4 ">
+                                                <div class="pourcentage">
+                                                    <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">20</strong>%<br>Consommation
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-4 ">
+                                                <div class="pourcentage">
+                                                    <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">15</strong>%<br>Déchet
+                                                </div>
+                                            </div>
+
+                                            <div id="chartdiv"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="info" id="p2">
+                                <div class="portlet light portlet-fit ">
+                                    <div class="portlet-title" style="background-color :#bfcad1 ;">
+
+                                        Block information Assemblage1
+                                    </div>
+                                    <div class="portlet-body util-btn-margin-bottom-5">
+
+                                        Assemblage1<br><br><br>
+
+                                        <iframe src="https://3dwarehouse.sketchup.com/embed.html?mid=f0a94f01cbea401496853d3b5aa459b6&width=300&height=326" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="300" height="326" allowfullscreen></iframe>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet box">
+                <div class="portlet-title" style="background-color:#32c5d2">
+                    <div class="caption">
+                        <i class="fa fa-globe"></i>Row & Column Reordering </div>
+                    <div class="tools"> </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th class="all">Machine</th>
+                            <th class="min-phone-l">Type</th>
+                            <th class="min-tablet">numéro piéce(s) bonne(s)</th>
+                            <th class="none">numéro piéce(s) movaise(s)</th>
+                            <th class="none">Objectif</th>
+                            <th class="none">efficacité</th>
+                            <th class="desktop">nombre d'heure de fonctionnement</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for mach in machines %}
+                            <tr>
+
+
+                                <td> {{   mach.nomMachine }} </td>
+                                <td>{{ mach.type }}</td>
+                                <td>{{ mach.nbPieceBonne }}</td>
+                                <td>{{ mach.nbPieceMovaise }}</td>
+                                <td>{{ mach.objectif }}</td>
+                                <td>{{ (mach.nbPieceBonne*100)/(mach.nbPieceBonne+mach.nbPieceMovaise) }} %</td>
+                                <td>{{ mach.bnHeureFonc }}</td>
+
+
+
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
+        </div>
+    </div>
+
+    <script>
+
+        AmCharts.makeChart("chartdiv",
+            {
+                "type": "serial",
+                "categoryField": "category",
+                "startDuration": 1,
+                "theme": "light",
+                "categoryAxis": {
+                    "gridPosition": "start"
+                },
+                "chartScrollbar": {
+                    "enabled": true
+                },
+                "trendLines": [],
+                "graphs": [
+                    {
+                        "balloonText": "[[category]] of [[title]]:[[value]]",
+                        "fillAlphas": 1,
+                        "id": "AmGraph-1",
+                        "title": "2016",
+                        "type": "column",
+                        "valueField": "column-1"
+                    },
+                    {
+                        "balloonText": "[[category]] of [[title]]:[[value]]",
+                        "fillAlphas": 1,
+                        "id": "AmGraph-2",
+                        "title": "2017",
+                        "type": "column",
+                        "valueField": "column-2"
+                    }
+                ],
+                "guides": [],
+                "valueAxes": [
+                    {
+                        "id": "ValueAxis-1",
+                        "title": "Piéce(s)"
+                    }
+                ],
+                "allLabels": [],
+                "balloon": {},
+                "legend": {
+                    "enabled": true,
+                    "useGraphSettings": true
+                },
+                "titles": [
+                    {
+                        "id": "Title-1",
+                        "size": 15,
+                        "text": "Suivi production"
+                    }
+                ],
+                "dataProvider": [
+                    {
+                        "category": "Janvier",
+                        "column-1": 100,
+                        "column-2": 120
+                    },
+                    {
+                        "category": "Février",
+                        "column-1": 105,
+                        "column-2": 122
+                    },
+                    {
+                        "category": "Mars",
+                        "column-1": 110,
+                        "column-2": 110
+                    },
+                    {
+                        "category": "Avril",
+                        "column-1": 113,
+                        "column-2": 120
+                    }
+                ]
+            }
+        );
+
+        $(document).ready(function(){
+
+            $("#p2").hide(0);
+            $("#assemblage1").on('click',function(){
+                $("#p1").toggle(300);
+                $("#p2").toggle(300);
+            })
+        });
+    </script>
+
+{% endblock %}

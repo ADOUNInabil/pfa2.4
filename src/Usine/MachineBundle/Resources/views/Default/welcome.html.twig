@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ asset('templates/style.css') }}">
+    <script src="{{ asset('https://code.jquery.com/jquery-3.2.1.js') }}"></script>
+</head>
+
+<body>
+
+<h1 class="welcometext"><strong>WELCOME TO YOUR DASHBOARD </strong></h1>
+
+<div class="welcomepage">
+
+    <img class="img1" src="{{ asset('templates/usine.png') }}" alt>
+
+
+    <img class="img2" src="{{ asset('templates/post2.png') }}" alt>
+
+
+    <img class="img3" src="{{ asset('templates/magazin.png') }}" >
+
+    <img class="img4" src="{{ asset('templates/machine2.png') }}" usemap="#imagemap" >
+
+    <map name="imagemap" id="Map">
+        <area class="area1" href="http://localhost/pfa2/admin/stock.php" shape="rect" coords="20,5,400,200" title="See Stock" />
+        <area class="area1" shape="rect" coords="600,20,800,300" href="http://localhost/pfa2/admin/rh.php" title="Administration"/>
+        <area class="area1" shape="circle" coords="430,420,250" href="{{ path('production') }}" title="Production"/>
+    </map>
+</div>
+
+<script>
+    $(function(){
+        $(".welcometext").animate({left: '30%'},1000);
+        $(".welcomepage").hide(0).fadeIn(3000);
+    });
+
+    $(document).ready(function(){
+        $(".img1").hover(function(){
+
+            $(".img2").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+            $(".img3").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+            $(".img4").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+        }, function(){
+
+            $(".img2").css({visibility:'hidden',"transform":"translateY(-500px)"});
+            $(".img3").css({visibility:'hidden',"transform":"translateY(-500px)"});
+            $(".img4").css({visibility:'hidden',"transform":"translateY(-500px)"});
+        });
+
+        $(".img4").hover(function(){
+            $(".img1").css({opacity:'0.5'});
+            $(".img2").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+            $(".img3").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+            $(".img4").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+        }, function(){
+            $(".img1").css({opacity:'1'});
+            $(".img2").css({visibility:'hidden',"transform":"translateY(500px)"});
+            $(".img3").css({visibility:'hidden',"transform":"translateY(500px)"});
+            $(".img4").css({visibility:'hidden',"transform":"translateY(500px)"});
+        });
+
+        $(".area1").hover(function(){
+            $(".img1").css({opacity:'0.5'});
+            $(".img2").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+            $(".img3").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+            $(".img4").css({display:'flex',visibility:'visible',"transform":"translateY(-500px)"});
+        }, function(){
+            $(".img1").css({opacity:'1'});
+            $(".img2").css({visibility:'hidden',"transform":"translateY(500px)"});
+            $(".img3").css({visibility:'hidden',"transform":"translateY(500px)"});
+            $(".img4").css({visibility:'hidden',"transform":"translateY(500px)"});
+        });
+    });
+</script>
+</body>
+</html>

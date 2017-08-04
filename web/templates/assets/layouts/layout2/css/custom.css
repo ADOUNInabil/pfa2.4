@@ -1,0 +1,261 @@
+/* here you can put your own css to customize and override the theme */
+.plan {
+	width:32%; 
+	border : 1px solid;
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	color:#ACB5C3 ;
+	float:left ;
+	margin-left:5px;
+}
+.btn1 {
+	
+	width:150px ;
+	color : #fff ; 
+	height: 40px ;
+	background-color:#26C281 ;
+	
+	border : 1px solid;
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	margin:2px ;
+	
+	
+	 border: none;
+	 text-align: center;
+	 transition: all 0.5s;
+  cursor: pointer;
+  margin-bottom:5px;
+  
+  
+}
+
+
+.btn2 {
+	width:150px ;
+		height:40px ;
+	color : #fff ; 
+	background-color:#D91E18  ;
+	border : 1px solid;
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	margin:2px ;
+	 border: none;
+	 text-align: center;
+	 transition: all 0.5s;
+  cursor: pointer;
+	margin-bottom:5px;
+}
+
+.btn3 {
+	width:70px ;
+	height: 40px ;
+	color : #000 ; 
+	background-color:#E5E5E5    ;
+	border : 1px solid;
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	margin:2px ;
+	height:40px ;
+	 border: none;
+	 text-align: center;
+	 transition: all 0.5s;
+  cursor: pointer;
+	margin-bottom:5px;
+}
+
+@media (max-width: 768px) {
+.btn1, .btn2, .btn3{
+	
+	width:50px !important;
+	
+} 
+.marg {
+	margin-left:10px !important;
+}
+}
+
+.btn1 span,.btn2 span,.btn3 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.btn1 span:after ,.btn2 span:after,.btn3 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn1:hover span,.btn2:hover span,.btn3:hover span {
+  padding-right: 25px;
+}
+
+.btn1:hover ,.btn2:hover,.btn3:hover  {
+	transform:scale(1.05) ;
+ background-color : #5e738b ;
+}
+
+.btn1:hover span:after,.btn2:hover span:after,.btn3:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.legende {
+	clear:both ;
+	margin-left:20px ;
+}
+
+.circle:before {
+	margin-left: 40px;
+	color :#26C281;
+  content: ' \25CF';
+  font-size: 30px;
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+.legend-text {
+	padding-bottom: 10px;	
+	margin-bottom: 10px;	
+	text-align: center;
+}
+.red:before{
+ color:#D91E18 !important ;
+}
+
+.black:before{
+ color:#000 !important ;
+}
+
+.grey:before{
+ color:#E5E5E5 !important ;
+}
+
+.green{
+ color:green !important ;
+}
+
+.prod{
+	width:30%;
+	float: right;
+	
+}
+
+.linkmachine{
+	
+	margin-left: 190px;
+}
+
+ .info{
+	 border : 1px solid;
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	color:gray ;
+	height: 550px;
+	margin-left:5px;
+ }
+
+ .infou16{
+	 border : 1px solid;
+	border-radius : 5px;
+	-moz-border-radius : 5px;
+	-webkit-border-radius : 5px;
+	color:gray ;
+	
+	margin-left:5px;
+ }
+
+ .pourcentage{
+	 
+	text-align: center;
+ }
+
+ #chartdiv {
+	width		: 100%;
+	height		: 300px;
+	font-size	: 11px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+}	
+
+.card{
+	width:200px;
+}
+
+.block3{
+	padding-top : 170px;
+	text-align: center ;
+	margin: auto;
+	display: block;
+	position: absolute;
+}
+
+.block3-16{
+	padding-top : 100px;
+	text-align: center ;
+	margin: auto;
+	display: block;
+	position: absolute;
+}
+
+@media (min-width: 1900px) {
+#dash2{
+	width: 160px !important ;
+}
+#B1 , #B2{
+	width: 120px !important;
+}
+#A117{
+	margin-left:65px;
+}
+}
+
+@media (max-width: 900px) {
+#dash2{
+	width: 70px !important ;
+}
+#imgarc {
+	width: 70px !important ;
+}
+.details-u16{
+	width:80px !important;
+}
+	.Piediv {
+		height:40% !important;
+	}
+}
+
+
+.Piediv {
+	width:55% ; 
+	height:55%;
+
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.detailsl12{
+
+	margin-top: 20px ;
+}
+.arrow-details{
+	float:left;
+	margin-top:50px;
+	margin-left:20px;
+}
+
+.details-u16{
+	float:right;
+	width:109px;
+	
+}
