@@ -5,6 +5,7 @@ namespace Usine\MachineBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Usine\MachineBundle\MachineBundle;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class DefaultController extends Controller
@@ -105,13 +106,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");
 
         $machines =$repository->findBy(array('block' => $nom,'date'=>$time),array('id' => 'asc'));
-
-
-
-
-
-
-            $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->find($nom);
+        $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->find($nom);
         $nb_pieces = 0;
       //$m = $block->getMachine();
        foreach($machines as $machine){
@@ -136,6 +131,19 @@ class DefaultController extends Controller
     else if($nom==5){
         return $this->render('MachineBundle:admin:detailsL16.html.twig', array('blocknom' => $nom,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces));
     }
+    }
+
+    /**
+     * @Route("/machine/{id}", name="machinedetail")
+     */
+    public function detailmachineAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $machinedetail = $bl = $em->getRepository('MachineBundle:Machine')->find($id);
+        $machinename=$machinedetail->getNomMachine();
+        $lien=$machinedetail->getLien();
+        $obj=$machinedetail->getObjectif();
+        $response = new JsonResponse();
+        return $response->setData(array('nom'=>$machinename , 'lien'=>$lien , 'obj'=>$obj));
     }
 }
 
