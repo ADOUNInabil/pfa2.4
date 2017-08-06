@@ -52,7 +52,8 @@ class DefaultController extends Controller
     public function productionAction()
     {
         //$date = strftime("%y-%m-%d", mktime( date('m'), date('d')-1, date('y')));
-
+        $date = new \DateTime('-1 days');
+        $date->format('Y-m-d');
         $time = new \DateTime();
         $time->format('Y-m-d');
         $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->findAll();
@@ -61,6 +62,7 @@ class DefaultController extends Controller
             $nb_pieces = 0;
             $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");
             $machines =$repository->findBy(array('block' => $id,'date'=>$time));
+            if($machines){
             foreach($machines as $machine){
                 $nb_pieces += $machine->getNbPieceBonne();
 
@@ -71,7 +73,7 @@ class DefaultController extends Controller
             $bl->setNbPieceTotale($nb_pieces);
             $bl->setDate($time);
             $em->flush();
-
+            }
 
         }
         $blocks = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('date'=>$time));
@@ -100,13 +102,21 @@ class DefaultController extends Controller
     public function detailsAction($nom)
     {
 
+
+
+
+        $date = new \DateTime('-1 days');
+        $date->format('Y-m-d');
         $time = new \DateTime();
         $time->format('Y-m-d');
         //$machine = $repository->findOneBy(array('nomMachine' => 'Unité Assemblage 1','date'=>$time));
         $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");
 
         $machines =$repository->findBy(array('block' => $nom,'date'=>$time),array('id' => 'asc'));
-        $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->find($nom);
+        $blockactuel = $this->getDoctrine()->getRepository('MachineBundle:Block')->find($nom);
+        //$blocknom=$blockactuel->getNomBlock();
+        //$blocktotal=$blockactuel->getNbPieceTotale();
+        $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->findOneBy(array('nomBlock'=>'A10','date'=>$date));
         $nb_pieces = 0;
       //$m = $block->getMachine();
        foreach($machines as $machine){
@@ -116,7 +126,7 @@ class DefaultController extends Controller
 
 
         if($nom==1){
-        return $this->render('MachineBundle:admin:detailsU.html.twig', array('blocknom' => $nom,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces));
+        return $this->render('MachineBundle:admin:detailsU.html.twig', array('blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
     }
     else if($nom==2) {
 

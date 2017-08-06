@@ -11,12 +11,13 @@
     <div class="loading"></div>
 <div class="row">
     <div class="col-md-12">
-
+        {{ blockactuel.nbPieceTotale }}
+        {{ ((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*100 }}
         <div class="portlet light ">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-pie-chart  font-green-haze"></i>
-                    <span class="caption-subject bold uppercase font-green-haze">Block {{ blocknom }}</span>
+                    <span class="caption-subject bold uppercase font-green-haze">Block {{ blockactuel.nomBlock }}</span>
                     <span class="caption-helper">Details</span>
                 </div>
 
@@ -230,16 +231,29 @@
 
 
                                             <div class="pourcentage">
-                                                <span class="glyphicon glyphicon-triangle-top green" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">15</strong>%<br>Production
+                                                {% if  (blockactuel.nbPieceTotale-block.nbPieceTotale>0) %}
+                                                <span class="glyphicon glyphicon-triangle-top green" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ (((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*100)|round(1, 'floor') }}</strong>%<br>Production
+
                                             </div>
                                         </div>
 
                                         <div class="col-xs-4 ">
                                             <div class="pourcentage">
-                                                <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">20</strong>%<br>Consommation
+                                                <span class="glyphicon glyphicon-triangle-top green" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ blockactuel.nbPieceTotale-block.nbPieceTotale }}</strong><br>Piéce(s)
                                             </div>
                                         </div>
+                                            {% else %}
+                                                <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ (((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*-100)|round(1, 'floor') }}</strong>%<br>Production
+                                        </div>
+                                    </div>
 
+                                    <div class="col-xs-4 ">
+                                        <div class="pourcentage">
+                                            <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ blockactuel.nbPieceTotale-block.nbPieceTotale }}</strong><br>Piéce(s)
+                                        </div>
+                                    </div>
+                                            {% endif %}
+                                        <!-- a modifier -->
                                         <div class="col-xs-4 ">
                                             <div class="pourcentage">
                                                 <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">15</strong>%<br>Déchet
