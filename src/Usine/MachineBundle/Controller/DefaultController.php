@@ -142,8 +142,12 @@ class DefaultController extends Controller
         $machinename=$machinedetail->getNomMachine();
         $lien=$machinedetail->getLien();
         $obj=$machinedetail->getObjectif();
+        $nbpb=$machinedetail->getNbPieceBonne();
+        $nbpm=$machinedetail->getNbPieceMovaise();
+        $efficacite=($nbpb*100)/($nbpm+$nbpb);
+        $efficacite=number_format((float)$efficacite, 2, '.', '');
         $response = new JsonResponse();
-        return $response->setData(array('nom'=>$machinename , 'lien'=>$lien , 'obj'=>$obj));
+        return $response->setData(array('nom'=>$machinename , 'lien'=>$lien , 'obj'=>$obj ,'efficacite'=>$efficacite));
     }
 }
 

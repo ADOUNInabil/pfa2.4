@@ -42,9 +42,9 @@
                                                 <div class="col-md-2 col-lg-2" style="float:left;">
                                                     {% if m.type == "assemblage" %}
                                                     {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                                    <a class="dashboard-stat dashboard-stat-v2 green" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" href="#">
+                                                    <a class="dashboard-stat dashboard-stat-v2 green" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" onclick="fonctiondetail({{ m.id }})">
                                                         {% else %}
-                                                        <a class="dashboard-stat dashboard-stat-v2 green" id="dash2" style="border-bottom: 7px solid red;width:100px;" href="#">
+                                                        <a class="dashboard-stat dashboard-stat-v2 green" id="dash2" style="border-bottom: 7px solid red;width:100px;" onclick="fonctiondetail({{ m.id }})">
                                                             {% endif %}
                                                         <div class="visual">
 
@@ -54,9 +54,9 @@
 
                                                             {% if m.type == "test" %}
                                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                                            <a class="dashboard-stat dashboard-stat-v2 blue" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" href="#">
+                                                            <a class="dashboard-stat dashboard-stat-v2 blue" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" onclick="fonctiondetail({{ m.id }})">
                                                                 {% else %}
-                                                                <a class="dashboard-stat dashboard-stat-v2 blue" id="dash2" style="border-bottom: 7px solid red;width:100px;" href="#">
+                                                                <a class="dashboard-stat dashboard-stat-v2 blue" id="dash2" style="border-bottom: 7px solid red;width:100px;" onclick="fonctiondetail({{ m.id }})">
                                                                     {% endif %}
                                                                     <div class="visual">
 
@@ -67,9 +67,9 @@
 
                                                                     {% if m.type == "decharge" %}
                                                                     {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                                                    <a class="dashboard-stat dashboard-stat-v2 purple" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" href="#">
+                                                                    <a class="dashboard-stat dashboard-stat-v2 purple" id="dash2" style="border-bottom: 7px solid #5DC655;width:100px;" onclick="fonctiondetail({{ m.id }})">
                                                                         {% else %}
-                                                                        <a class="dashboard-stat dashboard-stat-v2 purple" id="dash2" style="border-bottom: 7px solid red;width:100px;" href="#">
+                                                                        <a class="dashboard-stat dashboard-stat-v2 purple" id="dash2" style="border-bottom: 7px solid red;width:100px;" onclick="fonctiondetail({{ m.id }})">
                                                                             {% endif %}
                                                                             <div class="visual">
 
@@ -115,6 +115,7 @@
                                     </div>
                                     <div class="portlet-body util-btn-margin-bottom-5">
                                         <div class="clearfix">
+                                            <div id="in">
                                             <div class="col-xs-4">
 
 
@@ -139,26 +140,12 @@
 
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-
-                            <div class="info" id="p2">
-                                <div class="portlet light portlet-fit ">
-                                    <div class="portlet-title" style="background-color :#bfcad1 ;">
-
-                                        Block information Assemblage1
-                                    </div>
-                                    <div class="portlet-body util-btn-margin-bottom-5">
-
-                                        Assemblage1<br><br><br>
-
-                                        <iframe src="https://3dwarehouse.sketchup.com/embed.html?mid=f0a94f01cbea401496853d3b5aa459b6&width=300&height=326" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="300" height="326" allowfullscreen></iframe>
-
-
                                     </div>
                                 </div>
                             </div>
+
+
+
 
 
 
@@ -297,14 +284,7 @@
             }
         );
 
-        $(document).ready(function(){
-
-            $("#p2").hide(0);
-            $("#assemblage1").on('click',function(){
-                $("#p1").toggle(300);
-                $("#p2").toggle(300);
-            })
-        });
+       
     </script>
 
 {% endblock %}

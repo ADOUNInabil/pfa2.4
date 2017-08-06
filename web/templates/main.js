@@ -16,8 +16,8 @@ var arrow_down = "{{ asset('templates/loading.gif') }}";
                 setTimeout(function(){
 
 
-                document.getElementById("in").innerHTML='<h3 align="center">'+data.nom+'</h3><br><iframe src='+data.lien+' frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="300" height="326" allowfullscreen></iframe>';
-                }, 2000);
+                document.getElementById("in").innerHTML='<div align="center"> <p><i>Nom : </i>'+data.nom+'<br><i>objectif : </i>'+data.obj+' piéces<br><i>Efficacité : </i>'+data.efficacite+'%<br></p><iframe align="center" src='+data.lien+' frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="300" height="326" allowfullscreen></iframe></div>';
+                }, 1000);
             }
         })
     };

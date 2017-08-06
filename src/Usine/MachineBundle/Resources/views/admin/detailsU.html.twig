@@ -47,7 +47,7 @@
                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
                                             <a class="dashboard-stat dashboard-stat-v2 green" onclick="fonctiondetail({{ m.id }})" style="border-bottom: 7px solid #5DC655;">
                                                 {% else %}
-                                                <a class="dashboard-stat dashboard-stat-v2 green" style="border-bottom: 7px solid red;" href="#">
+                                                <a class="dashboard-stat dashboard-stat-v2 green" onclick="fonctiondetail({{ m.id }})" style="border-bottom: 7px solid red;" >
                                                 {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-cogs"></i>
@@ -71,9 +71,9 @@
                                         {% if m.nomMachine == "Unité Assemblage 2" %}
                                         <div class="col-xs-4" style="float:right;">
                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                            <a class="dashboard-stat dashboard-stat-v2 green" style="border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 green" onclick="fonctiondetail({{ m.id }})" style="border-bottom: 7px solid #5DC655;" >
                                                 {% else %}
-                                                <a class="dashboard-stat dashboard-stat-v2 green" style="border-bottom: 7px solid red;" href="#">
+                                                <a class="dashboard-stat dashboard-stat-v2 green" onclick="fonctiondetail({{ m.id }})" style="border-bottom: 7px solid red;" >
                                                     {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-cogs"></i>
@@ -96,9 +96,9 @@
                                         {% if m.nomMachine == "Unité Assemblage 3" %}
                                         <div class="col-xs-4" style="float:right;">
                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                            <a class="dashboard-stat dashboard-stat-v2 green" style="border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 green" onclick="fonctiondetail({{ m.id }})" style="border-bottom: 7px solid #5DC655;">
                                                 {% else %}
-                                                <a class="dashboard-stat dashboard-stat-v2 green" style="border-bottom: 7px solid red;" href="#">
+                                                <a class="dashboard-stat dashboard-stat-v2 green" onclick="fonctiondetail({{ m.id }})" style="border-bottom: 7px solid red;">
                                                     {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-cogs"></i>
@@ -119,9 +119,9 @@
                                         {% if m.nomMachine == "Unité graissage" %}
                                         <div class="col-xs-4" style="float:left;">
                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                            <a class="dashboard-stat dashboard-stat-v2 red" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 red" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" >
                                                 {% else %}
-                                                <a class="dashboard-stat dashboard-stat-v2 red" style="height:150px;margin-top:10px;border-bottom: 7px solid red;" href="#">
+                                                <a class="dashboard-stat dashboard-stat-v2 red" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid red;">
                                                     {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-tint"></i>
@@ -142,9 +142,9 @@
                                         {% if m.nomMachine == "Unité test 1" %}
                                         <div class="col-xs-4" style="float:left;clear:both;">
                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                            <a class="dashboard-stat dashboard-stat-v2 blue" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 blue" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" >
                                                 {% else %}
-                                            <a class="dashboard-stat dashboard-stat-v2 blue" style="height:150px;margin-top:10px;border-bottom: 7px solid red;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 blue" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid red;" >
                                                 {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-flask"></i>
@@ -164,9 +164,9 @@
                                             {% if m.nomMachine == "Unité test 2" %}
                                         <div class="col-xs-4" style="float:left;">
                                             {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                            <a class="dashboard-stat dashboard-stat-v2 blue" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 blue" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" >
                                                  {% else %}
-                                            <a class="dashboard-stat dashboard-stat-v2 blue" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 blue" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" >
                                                 {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-flask"></i>
@@ -186,9 +186,9 @@
                                          {% if m.nomMachine == "Unité décharge" %}
                                         <div class="col-xs-4" style="float:left;">
                                          {% if (m.nbPieceBonne*100)/(m.nbPieceBonne+m.nbPieceMovaise) >90 %}
-                                            <a class="dashboard-stat dashboard-stat-v2 purple" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 purple" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid #5DC655;" >
                                               {% else %}
-                                            <a class="dashboard-stat dashboard-stat-v2 purple" style="height:150px;margin-top:10px;border-bottom: 7px solid red;" href="#">
+                                            <a class="dashboard-stat dashboard-stat-v2 purple" onclick="fonctiondetail({{ m.id }})" style="height:150px;margin-top:10px;border-bottom: 7px solid red;" >
                                                 {% endif %}
                                                 <div class="visual">
                                                     <i class="fa fa-dropbox"></i>
@@ -246,11 +246,11 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <div id="in">
+
 
                                         <div id="chartdiv"></div>
 
-                                        </div>
+
 
                                     </div>
                                 </div>
