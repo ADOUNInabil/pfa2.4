@@ -24,7 +24,7 @@ class Block
     /**
      * @var string
      *
-     * @ORM\Column(name="nomBlock", type="string", length=30, unique=true)
+     * @ORM\Column(name="nomBlock", type="string", length=30)
      */
     private $nomBlock;
 
