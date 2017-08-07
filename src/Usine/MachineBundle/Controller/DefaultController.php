@@ -182,7 +182,7 @@ class DefaultController extends Controller
             $alert= $this->getDoctrine()->getRepository('MachineBundle:Alert')->findOneBy(array('date'=>$time,'machine'=>$id));
             if ($alert){
                 $id=$alert->getId();
-                if (($efficacite<=90)&&($efficacite>80)){
+                if (($efficacite<=90)&&($efficacite>=80)){
 
                     $em=$this->getDoctrine()->getManager();
                     $al = $em->getRepository('MachineBundle:Alert')->find($id);
@@ -192,7 +192,7 @@ class DefaultController extends Controller
                     $alert->setDescription($ch);
                     $em->flush();
                 }
-                elseif (($efficacite<80)&&($efficacite>70)){
+                elseif (($efficacite<80)&&($efficacite>=70)){
                     $em=$this->getDoctrine()->getManager();
                     $al = $em->getRepository('MachineBundle:Alert')->find($id);
                     $al->setType('warning');
@@ -201,7 +201,7 @@ class DefaultController extends Controller
                     $al->setDescription($ch);
                     $em->flush();
                 }
-                elseif ($efficacite<70) {
+                elseif ($efficacite<=70) {
                     $em=$this->getDoctrine()->getManager();
                     $al = $em->getRepository('MachineBundle:Alert')->find($id);
                     $al->setType('danger');
@@ -221,7 +221,7 @@ class DefaultController extends Controller
             else {
 
 
-                if (($efficacite<=90)&&($efficacite>80)){
+                if (($efficacite<=90)&&($efficacite>=80)){
                     $alert=new Alert();
                     $alert->setType('active');
                     $alert->setDate($time);
@@ -235,7 +235,7 @@ class DefaultController extends Controller
                     $em->persist($alert);
                     $em->flush();
                 }
-                elseif (($efficacite<80)&&($efficacite>70)){
+                elseif (($efficacite<80)&&($efficacite>=70)){
                     $alert=new Alert();
                     $alert->setType('warning');
                     $alert->setDate($time);
@@ -283,6 +283,14 @@ class DefaultController extends Controller
         $em->remove($notif);
         $em->flush();
         return $this->render('MachineBundle:Default:welcome.html.twig');
+    }
+
+    /**
+     * @Route("/s", name="stock")
+     */
+    public function stockAction(){
+
+        return $this->render('MachineBundle:admin:stock.html.twig');
     }
 }
 

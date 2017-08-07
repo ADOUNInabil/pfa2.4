@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stock</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stock.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomarticle</th>
+                <td>{{ stock.nomArticle }}</td>
+            </tr>
+            <tr>
+                <th>Quantite</th>
+                <td>{{ stock.quantite }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ stock.prix }}</td>
+            </tr>
+            <tr>
+                <th>Dateentre</th>
+                <td>{% if stock.dateentre %}{{ stock.dateentre|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datesortie</th>
+                <td>{% if stock.datesortie %}{{ stock.datesortie|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('stock_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('stock_edit', { 'id': stock.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

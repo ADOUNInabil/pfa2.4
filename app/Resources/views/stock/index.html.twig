@@ -1,0 +1,302 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+<style>
+    #chartdiv {
+        position : absolute ;
+        width		: 100%;
+        height		: 500px;
+        font-size	: 11px;
+    }
+
+
+    #chartdiv1 {
+        width		: 100%;
+        height		: 500px;
+        font-size	: 11px;
+    }
+</style>
+
+
+
+
+
+
+<h1 class="page-title"> Stock
+    <small>quantity </small>
+</h1>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="production.php">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <span>Stock</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-bell"></i> Action</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-shield"></i> Another action</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> Something else here</a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-bag"></i> Separated link</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- END PAGE HEADER-->
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase">Stocks list</span>
+                </div>
+                <div class="tools"> </div>
+            </div>
+            <div class="portlet-body">
+
+
+
+
+
+
+              <table class="table table-striped table-bordered table-hover " id="sample_1">
+                 <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nomarticle</th>
+                        <th>Quantite</th>
+                        <th>Prix</th>
+                        <th>Dateentre</th>
+                        <th>Datesortie</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                  <tfoot>
+                  <tr>
+                      <th>Id</th>
+                      <th>Nomarticle</th>
+                      <th>Quantite</th>
+                      <th>Prix</th>
+                      <th>Dateentre</th>
+                      <th>Datesortie</th>
+                      <th>Actions</th>
+                  </tr>
+                  </tfoot>
+
+
+                <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                        <td><a href="{{ path('stock_show', { 'id': stock.id }) }}">{{ stock.id }}</a></td>
+                        <td>{{ stock.nomArticle }}</td>
+                        <td>{{ stock.quantite }}</td>
+                        <td>{{ stock.prix }}</td>
+                        <td>{% if stock.dateentre %}{{ stock.dateentre|date('Y-m-d') }}{% endif %}</td>
+                        <td>{% if stock.datesortie %}{{ stock.datesortie|date('Y-m-d') }}{% endif %}</td>
+                        <td style="height:30px">
+                            <div class="btn-group">
+                            <button  class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" > Actions
+                                <i class="fa fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu pull-left" role="menu">
+                                <li>
+                                    <a href="{{ path('stock_show', { 'id': stock.id }) }}">
+                                        <i class="icon-bell"></i> Détail</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('stock_edit', { 'id': stock.id }) }}">
+                                        <i class="icon-shield"></i> Edit</a>
+                                </li>
+                            </ul>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+
+
+                    <button onclick="location.href='{{ path('stock_new') }}'" id="sample_editable_1_new" class="btn sbold red"> Add New
+                        <i class="fa fa-plus"></i>
+                    </button>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="row">
+        <div class="col-md-8">
+            <!-- BEGIN CHART PORTLET-->
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-bar-chart font-green-haze"></i>
+                        <span class="caption-subject bold uppercase font-green-haze">Stock capacity</span>
+
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+
+                        <a href="javascript:;" class="reload"> </a>
+                        <a href="javascript:;" class="fullscreen"> </a>
+                        <a href="javascript:;" class="remove"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+
+                    <div id="chartdiv"></div>
+
+                </div>
+            </div>
+            <!-- END CHART PORTLET-->
+        </div>
+
+        <div class="col-md-4">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-bar-chart font-green-haze"></i>
+                        <span class="caption-subject bold uppercase font-green-haze">Stock capacity</span>
+
+                    </div>
+                    <div class="tools">
+                        <a href="javascript:;" class="collapse"> </a>
+
+                        <a href="javascript:;" class="reload"> </a>
+                        <a href="javascript:;" class="fullscreen"> </a>
+                        <a href="javascript:;" class="remove"> </a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="chartdiv1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var chartData = [ {
+            "category": "Capacity left",
+            "value1": 30,
+            "value2": 70
+        } ];
+
+
+        var chart = AmCharts.makeChart( "chartdiv", {
+            "theme": "light",
+            "type": "serial",
+            "depth3D": 100,
+            "angle": 30,
+            "autoMargins": false,
+            "marginBottom": 100,
+            "marginLeft": 350,
+            "marginRight": 300,
+            "dataProvider": chartData,
+            "valueAxes": [ {
+                "stackType": "100%",
+                "gridAlpha": 0
+            } ],
+            "graphs": [ {
+                "type": "column",
+                "topRadius": 1,
+                "columnWidth": 1,
+                "showOnAxis": true,
+                "lineThickness": 2,
+                "lineAlpha": 0.5,
+                "lineColor": "#FFFFFF",
+                "fillColors": "#8d003b",
+                "fillAlphas": 0.8,
+                "valueField": "value1"
+            }, {
+                "type": "column",
+                "topRadius": 1,
+                "columnWidth": 1,
+                "showOnAxis": true,
+                "lineThickness": 2,
+                "lineAlpha": 0.5,
+                "lineColor": "#cdcdcd",
+                "fillColors": "#cdcdcd",
+                "fillAlphas": 0.5,
+                "valueField": "value2"
+            } ],
+
+            "categoryField": "category",
+            "categoryAxis": {
+                "axisAlpha": 0,
+                "labelOffset": 40,
+                "gridAlpha": 0
+            },
+            "export": {
+                "enabled": true
+            }
+        } );
+    </script>
+
+    <script>
+        var chart1 = AmCharts.makeChart( "chartdiv1", {
+            "type": "pie",
+            "theme": "light",
+            "dataProvider": [ {
+                "title": "Empty",
+                "value": 2
+            }, {
+                "title": "Full",
+                "value": 10
+            } ],
+            "titleField": "title",
+            "valueField": "value",
+            "labelRadius": 5,
+
+            "radius": "42%",
+            "innerRadius": "60%",
+            "labelText": "[[title]]",
+            "export": {
+                "enabled": true
+            }
+        } );
+    </script>
+{% endblock %}

@@ -25,6 +25,7 @@
                             <th> Date </th>
                             <th> Ligne </th>
                             <th> Emplacement </th>
+                            <th> Description </th>
                             <th> Details </th>
                         </tr>
                         </thead>
@@ -36,6 +37,7 @@
                             <td> {{ alert.date|date('Y-m-d') }} </td>
                             <td> {{ alert.block }} </td>
                             <td> {{ alert.emplacement }} </td>
+                            <td> {{ alert.description }} </td>
                             <td>
                                 <a href="javascript:;" onclick="fonctiondetail({{alert.machine.id }})" class="btn dark btn-sm btn-outline sbold uppercase ">
                                     <i class="fa fa-share"></i> View </a>
