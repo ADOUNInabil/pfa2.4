@@ -282,7 +282,9 @@ class DefaultController extends Controller
         $notif = $em->getRepository('MachineBundle:Alert')->find($id);
         $em->remove($notif);
         $em->flush();
-        return $this->render('MachineBundle:Default:welcome.html.twig');
+        $response = new JsonResponse();
+        return $response->setData("OK");
+
     }
 
     /**

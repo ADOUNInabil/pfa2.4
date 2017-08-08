@@ -55,3 +55,4 @@ var SweetAlert = function () {
 jQuery(document).ready(function() {
     SweetAlert.init();
 });
+
