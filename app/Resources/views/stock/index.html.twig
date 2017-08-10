@@ -135,14 +135,56 @@
                             </button>
                             <ul class="dropdown-menu pull-left" role="menu">
                                 <li>
-                                    <a href="{{ path('stock_show', { 'id': stock.id }) }}">
+                                    <a data-target="#myModal{{ stock.id }}" data-toggle="modal">
                                         <i class="icon-bell"></i> Détail</a>
                                 </li>
                                 <li>
                                     <a href="{{ path('stock_edit', { 'id': stock.id }) }}">
                                         <i class="icon-shield"></i> Edit</a>
                                 </li>
+
                             </ul>
+
+
+
+
+                                <div class="modal fade" id="myModal{{ stock.id }}" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h3 align="center" class="modal-title"><strong><i>{{ stock.nomArticle }}</i></strong></h3>
+                                            </div>
+                                            <div class="modal-body">
+
+
+                                                    <h4>ID Produit : <span>{{ stock.id }}</span></h4>
+                                                <h4>Quantite : <span>{{ stock.quantite }}</span></h4>
+                                                <h4>Date entrée : <span>{{ stock.dateentre|date('Y-m-d') }}</span></h4>
+                                                <h4>Date sortie : <span>{{ stock.datesortie|date('Y-m-d') }}
+                                                {% if stock.datesortie < date() %}
+                                                    <span class="label label-danger" >expiré </span>
+                                                    {% else %}
+                                                    <span class="label label-success" >valide </span>
+                                                {% endif %}
+                                                        </span></h4>
+                                                <h3><span class="glyphicon glyphicon-usd"></span><strong style="margin-buttom: 10px!important;">{{ stock.prix }}</strong></h3>
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" onclick="location.href='{{path('stock_edit', { 'id': stock.id }) }}'">Editer</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
+
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                             </div>
 
 

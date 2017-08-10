@@ -41,6 +41,7 @@
                             <td> {{ alert.block }} </td>
                             <td> {{ alert.emplacement }} </td>
                             <td> {{ alert.description }} </td>
+                            {% if alert.machine != NULL %}
                             <td>
                                 <a href="javascript:;" onclick="fonctiondetail({{alert.machine.id }})" class="btn dark btn-sm btn-outline sbold uppercase ">
                                     <i class="fa fa-share"></i> View </a>
@@ -54,6 +55,17 @@
                                     {% endif %}
 
                             </td>
+                            {% endif %}
+
+
+                            {% if alert.stock != NULL %}
+                            <td>
+                                <a href="javascript:;" onclick="location.href='{{path('stock_index') }}'"class="btn dark btn-sm btn-outline sbold uppercase ">
+                                    <i class="fa fa-share"></i> View Stock </a>
+
+                            </td>
+                            {% endif %}
+
                         </tr>
                             {% endfor %}
 

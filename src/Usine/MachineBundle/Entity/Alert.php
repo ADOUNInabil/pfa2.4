@@ -78,6 +78,28 @@ class Alert
         $this->machine = $machine;
     }
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Stock", cascade={"persist", "remove"})
+
+     */
+    private $stock;
+
+    /**
+     * @return mixed
+     */
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    /**
+     * @param mixed $stock
+     */
+    public function setStock($stock)
+    {
+        $this->stock = $stock;
+    }
+
 
 
 
@@ -210,4 +232,5 @@ class Alert
     {
         return $this->description;
     }
+
 }

@@ -5,7 +5,8 @@ namespace Usine\MachineBundle\Controller;
 use Usine\MachineBundle\Entity\Stock;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Stock controller.
@@ -114,6 +115,28 @@ class StockController extends Controller
             $em->remove($stock);
             $em->flush();
         }
+
+        return $this->redirectToRoute('stock_index');
+    }
+
+
+    /**
+     * DeletePRODUIT.
+     *
+     * @Route("/deleteprod/{id}", name="deleteprod")
+
+     */
+    public function deleteprodAction($id)
+    {
+            $produit = $this->getDoctrine()->getRepository('MachineBundle:Stock')->find($id);
+            $alertproduit = $this->getDoctrine()->getRepository('MachineBundle:Alert')->findOneBy(array('stock'=>$id));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($alertproduit);
+             $em = $this->getDoctrine()->getManager();
+            $em->remove($produit);
+            $em->flush();
+
 
         return $this->redirectToRoute('stock_index');
     }

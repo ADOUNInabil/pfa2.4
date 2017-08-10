@@ -228,10 +228,10 @@
                                         <div id="in">
                                         <div class="col-xs-4">
 
-
+                                            {% if  (blockactuel.nbPieceTotale-block.nbPieceTotale>0) %}
                                             <div class="pourcentage">
-                                                {% if  (blockactuel.nbPieceTotale-block.nbPieceTotale>0) %}
-                                                <span class="glyphicon glyphicon-triangle-top green" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ (((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*100)|round(1, 'floor') }}</strong>%<br>Production
+
+                                                <span class="glyphicon glyphicon-triangle-top green" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ (((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*100)|round(0, 'floor') }}</strong>%<br>Production
 
                                             </div>
                                         </div>
@@ -242,7 +242,8 @@
                                             </div>
                                         </div>
                                             {% else %}
-                                                <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ (((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*-100)|round(1, 'floor') }}</strong>%<br>Production
+                                            <div class="pourcentage">
+                                                <span class="glyphicon glyphicon-triangle-bottom red" style="font-size: 10px;margin-right:0;vertical-align: middle;padding-bottom: 15px;" aria-hidden="true"></span> <strong style="font-size: 30px;font-weight: 600;">{{ (((blockactuel.nbPieceTotale-block.nbPieceTotale)/block.nbPieceTotale)*-100)|round(0, 'floor') }}</strong>%<br>Production
                                         </div>
                                     </div>
 

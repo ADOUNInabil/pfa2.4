@@ -189,7 +189,7 @@ class DefaultController extends Controller
                     $al->setType('active');
                     $nom=$machine->getNomMachine();
                     $ch=$nom . " efficacité inférieur a 90% ";
-                    $alert->setDescription($ch);
+                    $al->setDescription($ch);
                     $em->flush();
                 }
                 elseif (($efficacite<80)&&($efficacite>=70)){
@@ -222,49 +222,79 @@ class DefaultController extends Controller
 
 
                 if (($efficacite<=90)&&($efficacite>=80)){
-                    $alert=new Alert();
-                    $alert->setType('active');
-                    $alert->setDate($time);
-                    $alert->setEmplacement($machine->getNomMachine());
-                    $alert->setBlock($machine->getBlock()->getNomBlock());
+                    $ale=new Alert();
+                    $ale->setType('active');
+                    $ale->setDate($time);
+                    $ale->setEmplacement($machine->getNomMachine());
+                    $ale->setBlock($machine->getBlock()->getNomBlock());
                     $nom=$machine->getNomMachine();
                     $ch=$nom . " efficacité inférieur a 90% ";
-                    $alert->setDescription($ch);
-                    $alert->setMachine($machine);
+                    $ale->setDescription($ch);
+                    $ale->setMachine($machine);
                     $em=$this->getDoctrine()->getManager();
-                    $em->persist($alert);
+                    $em->persist($ale);
                     $em->flush();
                 }
                 elseif (($efficacite<80)&&($efficacite>=70)){
-                    $alert=new Alert();
-                    $alert->setType('warning');
-                    $alert->setDate($time);
-                    $alert->setEmplacement($machine->getNomMachine());
-                    $alert->setBlock($machine->getBlock()->getNomBlock());
+                    $ale=new Alert();
+                    $ale->setType('warning');
+                    $ale->setDate($time);
+                    $ale->setEmplacement($machine->getNomMachine());
+                    $ale->setBlock($machine->getBlock()->getNomBlock());
                     $nom=$machine->getNomMachine();
                     $ch=$nom . " efficacité inférieur a 80% ";
-                    $alert->setDescription($ch);
-                    $alert->setMachine($machine);
+                    $ale->setDescription($ch);
+                    $ale->setMachine($machine);
                     $em=$this->getDoctrine()->getManager();
-                    $em->persist($alert);
+                    $em->persist($ale);
                     $em->flush();
                 }
                 elseif ($efficacite<70) {
-                    $alert=new Alert();
-                    $alert->setType('danger');
-                    $alert->setDate($time);
-                    $alert->setEmplacement($machine->getNomMachine());
-                    $alert->setBlock($machine->getBlock()->getNomBlock());
+                    $ale=new Alert();
+                    $ale->setType('danger');
+                    $ale->setDate($time);
+                    $ale->setEmplacement($machine->getNomMachine());
+                    $ale->setBlock($machine->getBlock()->getNomBlock());
                     $nom=$machine->getNomMachine();
                     $ch=$nom . " efficacité inférieur a 70% ";
-                    $alert->setDescription($ch);
-                    $alert->setMachine($machine);
+                    $ale->setDescription($ch);
+                    $ale->setMachine($machine);
                     $em=$this->getDoctrine()->getManager();
-                    $em->persist($alert);
+                    $em->persist($ale);
                     $em->flush();
                 }
             }
         }
+
+
+
+        $produits=$this->getDoctrine()->getRepository('MachineBundle:Stock')->findAll();
+        foreach ($produits as $produit) {
+            $dateprod=$produit->getDatesortie();
+            $idprod=$produit->getId();
+            if($dateprod < $time) {
+                $alertprod=$this->getDoctrine()->getRepository('MachineBundle:Alert')->findBy(array('stock'=>$idprod));
+                    if($alertprod){
+
+                    }
+                    else {
+                        $alert=new Alert();
+                        $alert->setType('danger');
+                        $alert->setDate($time);
+                        $alert->setEmplacement("-");
+                        $alert->setBlock("-");
+                        $ch="La date du stock ".$produit->getNomArticle()." a expiré !" ;
+                        $alert->setDescription($ch);
+                        $alert->setStock($produit);
+                        $em=$this->getDoctrine()->getManager();
+                        $em->persist($alert);
+                        $em->flush();
+                    }
+
+            }
+        }
+
+
         $notifications= $this->getDoctrine()->getRepository('MachineBundle:Alert')->findAll();
         $qb = $em->createQueryBuilder();
         $qb->select('count(Alert)');

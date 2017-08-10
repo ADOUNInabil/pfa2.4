@@ -57,6 +57,8 @@ class Stock
     private $datesortie;
 
 
+
+
     /**
      * Get id
      *
@@ -186,4 +188,5 @@ class Stock
     {
         return $this->datesortie;
     }
+
 }
