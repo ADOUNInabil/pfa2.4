@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Usine\MachineBundle\MachineBundle;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Usine\MachineBundle\Entity\Alert;
+use Usine\MachineBundle\Entity\Block;
 
 
 class DefaultController extends Controller
@@ -53,12 +54,32 @@ class DefaultController extends Controller
     public function productionAction()
     {
         //$date = strftime("%y-%m-%d", mktime( date('m'), date('d')-1, date('y')));
-        $date = new \DateTime('-1 days');
-        $date->format('Y-m-d');
+        $datebd = new \DateTime('-1 days');
+        $datebd->format('Y-m-d');
+        $date =date('Y-m-d',strtotime("-1 days"));
         $time = new \DateTime();
         $time->format('Y-m-d');
         $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->findAll();
         foreach($block as $b){
+            $nom =$b->getNomBlock();
+            $datbl =$b->getDate();
+            $dateblock=$datbl->format('Y-m-d');
+            $block_exist = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('nomBlock'=>$nom,'date'=>$time));
+            if($block_exist){}
+            else {
+                if ($dateblock == $date){
+
+                    $blockhier = new Block() ;
+                    $blockhier->setNomBlock($b->getNomBlock());
+                    $blockhier->setNbPieceTotale($b->getNbPieceTotale());
+                    $blockhier->setObjectif($b->getObjectif());
+                    $blockhier->setStatu($b->getStatu());
+                    $blockhier->setDate($b->getDate());
+                    $em=$this->getDoctrine()->getManager();
+                    $em->persist($blockhier);
+                    $em->flush();
+
+                }}
             $id = $b->getId();
             $nb_pieces = 0;
             $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");
@@ -273,7 +294,7 @@ class DefaultController extends Controller
             $dateprod=$produit->getDatesortie();
             $idprod=$produit->getId();
             if($dateprod < $time) {
-                $alertprod=$this->getDoctrine()->getRepository('MachineBundle:Alert')->findBy(array('stock'=>$idprod));
+                $alertprod=$this->getDoctrine()->getRepository('MachineBundle:Alert')->findOneBy(array('stock'=>$idprod));
                     if($alertprod){
 
                     }
@@ -291,6 +312,16 @@ class DefaultController extends Controller
                         $em->flush();
                     }
 
+            } else {
+                $alertprod=$this->getDoctrine()->getRepository('MachineBundle:Alert')->findOneBy(array('stock'=>$idprod));
+
+                if($alertprod){
+                    $idalrp = $alertprod->getId();
+                    $em=$this->getDoctrine()->getManager();
+                    $alp = $em->getRepository('MachineBundle:Alert')->find($idalrp);
+                    $em->remove($alp);
+                    $em->flush();
+                }
             }
         }
 

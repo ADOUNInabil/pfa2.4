@@ -3,23 +3,121 @@
 {% block body %}
 
 
-    <h1>Stock edit</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- BEGIN VALIDATION STATES-->
+            <div class="portlet light portlet-fit portlet-form ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class=" icon-layers font-green"></i>
+                        <span class="caption-subject font-green sbold uppercase">Stock creation</span>
+                    </div>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+                </div>
+                <div class="portlet-body">
+                    <!-- BEGIN FORM-->
+                    {{ form_start(edit_form) }}
+                    <div class="form-body">
 
-    <ul>
-        <li>
-            <a href="{{ path('stock_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                        <div class="form-group form-md-line-input">
+
+
+
+
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-3 control-label" for="form_control_1">Nom Article :
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9">
+                                    {{ form_widget(edit_form.nomArticle , { 'attr': {'class': 'form-control'} }) }}
+                                    <div class="form-control-focus"> </div>
+                                </div>
+                            </div>
+                            <br><br>
+
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-3 control-label" for="form_control_1">Quantite :
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9">
+                                    {{ form_widget(edit_form.quantite , { 'attr': {'class': 'form-control'} }) }}
+                                    <div class="form-control-focus"> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-3 control-label" for="form_control_1">Prix :
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9">
+                                    {{ form_widget(edit_form.prix , { 'attr': {'class': 'form-control' ,'type':'number'} }) }}
+                                    <div class="form-control-focus"> </div>
+
+                                </div>
+                            </div>
+                            {% if not edit_form.vars.valid %}
+                                <div class="alert alert-danger">
+                                    <strong>Alert!</strong> {{ form_errors(edit_form.prix) }}.
+
+                                </div>
+
+
+                            {% endif %}
+                            <br><br>
+
+
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-3 control-label" for="form_control_1">Date entrée :
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9">
+                                    {{ form_widget(edit_form.dateentre ) }}
+                                    <div class="form-control-focus"> </div>
+                                </div>
+                            </div>
+
+                            <br><br>
+
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-3 control-label" for="form_control_1">Date sortie :
+                                    <span class="required">*</span>
+                                </label>
+                                <div class="col-md-9">
+                                    {{ form_widget(edit_form.datesortie) }}
+                                    <div class="form-control-focus"> </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <input class="btn btn-primary" type="submit" value="Edit" />
+                                        <a class="btn default" href="{{ path('stock_index') }}">Back to the list</a>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                    {{ form_end(edit_form) }}
+
+
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 {% endblock %}

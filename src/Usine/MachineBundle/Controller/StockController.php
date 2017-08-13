@@ -26,9 +26,16 @@ class StockController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $stocks = $em->getRepository('MachineBundle:Stock')->findAll();
+        $stock_capacity=1000 ;
+        $stock_actuel = 0 ;
+        foreach ($stocks as $stock){
+            $stock_actuel += $stock->getQuantite();
+        }
 
         return $this->render('stock/index.html.twig', array(
             'stocks' => $stocks,
+            'stock_actuel' => $stock_actuel,
+            'stock_capacity' => $stock_capacity,
         ));
     }
 
@@ -130,9 +137,10 @@ class StockController extends Controller
     {
             $produit = $this->getDoctrine()->getRepository('MachineBundle:Stock')->find($id);
             $alertproduit = $this->getDoctrine()->getRepository('MachineBundle:Alert')->findOneBy(array('stock'=>$id));
-
+            if ($alertproduit) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($alertproduit);
+            }
              $em = $this->getDoctrine()->getManager();
             $em->remove($produit);
             $em->flush();

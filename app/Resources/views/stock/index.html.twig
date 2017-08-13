@@ -324,10 +324,10 @@
             "theme": "light",
             "dataProvider": [ {
                 "title": "Empty",
-                "value": 2
+                "value": {{ stock_capacity - stock_actuel }}
             }, {
                 "title": "Full",
-                "value": 10
+                "value": {{ stock_actuel }}
             } ],
             "titleField": "title",
             "valueField": "value",

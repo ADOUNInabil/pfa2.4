@@ -79,7 +79,7 @@ class Alert
     }
 
     /**
-     * @ORM\ManyToOne(targetEntity="Stock", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Stock")
 
      */
     private $stock;

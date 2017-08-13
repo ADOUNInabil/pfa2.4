@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a6419c8f-d1d6-4266-891e-e86a43a6cb1b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/stock/edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/stock/edit.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/stock/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/stock/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/stock/new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/stock/new.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Alert.php" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Alert.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Stock.php" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Stock.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/alert.html.twig" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/alert.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/detailsU.html.twig" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/detailsU.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,31 +20,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Alert.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Alert.php">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="81" column="73" lean-forward="false" selection-start-line="81" selection-start-column="73" selection-end-line="81" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notification.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/notification.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alert.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/alert.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="60" column="47" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+            <state relative-caret-position="1078">
+              <caret line="177" column="155" lean-forward="false" selection-start-line="177" selection-start-column="147" selection-end-line="177" selection-end-column="155" />
               <folding />
             </state>
           </provider>
@@ -54,42 +33,8 @@
       <file leaf-file-name="DefaultController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-              <folding>
-                <element signature="e#50#107#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StockController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-              <folding>
-                <element signature="e#50#87#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stock.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Stock.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Machine.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Machine.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="262">
+              <caret line="318" column="50" lean-forward="false" selection-start-line="318" selection-start-column="50" selection-end-line="318" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -98,8 +43,28 @@
       <file leaf-file-name="Block.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Block.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+            <state relative-caret-position="704">
+              <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Alert.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Alert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="81" column="42" lean-forward="false" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StockController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="142" column="13" lean-forward="false" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -109,18 +74,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>get</find>
-      <find>blo</find>
-      <find>machi</find>
-      <find>set</find>
-      <find>id</find>
-      <find>12</find>
-      <find>nom</find>
-      <find>nabil</find>
-      <find>12 p</find>
       <find>machin</find>
       <find>getId</find>
-      <find>getn</find>
       <find>date</find>
       <find>qua</find>
       <find>Delivery</find>
@@ -133,12 +88,22 @@
       <find>ale</find>
       <find>ma</find>
       <find>getnom</find>
-      <find>stock</find>
       <find>machine</find>
       <find>block</find>
       <find>geta</find>
       <find>sto</find>
       <find>noti</find>
+      <find>production</find>
+      <find>set</find>
+      <find>==$da</find>
+      <find>new</find>
+      <find>getn</find>
+      <find>delete</find>
+      <find>stock_e</find>
+      <find>stock</find>
+      <find>gets</find>
+      <find>supp</find>
+      <find>Many</find>
     </findStrings>
   </component>
   <component name="FrameworkCommandLineHistory">
@@ -151,8 +116,6 @@
       <command text="s doctrine:generate:entities MachineBundle:Alert" />
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:generate:entities MachineBundle:Alert" />
-      <command text="s doctrine:schema:update --force" />
-      <command text="s doctrine:generate:entities MachineBundle:Alert" />
       <command text="s doctrine:generate:entities MachineBundle:Stock" />
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:generate:entities MachineBundle:Alert" />
@@ -164,6 +127,8 @@
       <command text="s doctrine:generate:entities MachineBundle:Alert" />
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:generate:entities MachineBundle:Stock" />
+      <command text="s doctrine:generate:entities MachineBundle:Alert" />
+      <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:generate:entities MachineBundle:Alert" />
       <command text="s doctrine:schema:update --force" />
       <command text="s doctrine:generate:entities MachineBundle:Alert" />
@@ -197,19 +162,20 @@
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/stock.html.twig" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/stock.php" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Repository/StockRepository.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/stock/edit.html.twig" />
         <option value="$PROJECT_DIR$/web/templates/main.js" />
         <option value="$PROJECT_DIR$/web/templates/assets/pages/scripts/ui-sweetalert.js" />
         <option value="$PROJECT_DIR$/web/templates/delete.js" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/stock/new.html.twig" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/detailsU.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/stock/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/alert.html.twig" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Stock.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/stock/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Form/StockType.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/stock/new.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/stock/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Alert.php" />
         <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php" />
-        <option value="$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php" />
       </list>
     </option>
   </component>
@@ -242,7 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -789,7 +755,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -907,7 +873,9 @@
       <workItem from="1502213902783" duration="5929000" />
       <workItem from="1502268957193" duration="13185000" />
       <workItem from="1502296344778" duration="594000" />
-      <workItem from="1502318672964" duration="5985000" />
+      <workItem from="1502318672964" duration="6045000" />
+      <workItem from="1502355927996" duration="6795000" />
+      <workItem from="1502548973974" duration="12662000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1501845982561</created>
@@ -958,27 +926,34 @@
       <option name="project" value="LOCAL" />
       <updated>1502234830595</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="retouche :p">
+      <created>1502326644746</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1502326644746</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155810000" />
+    <option name="totallyTimeSpent" value="175327000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2025" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.201875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32767624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1023,7 +998,8 @@
     <MESSAGE value="alert" />
     <MESSAGE value="stock" />
     <MESSAGE value="stock+alert modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="stock+alert modification" />
+    <MESSAGE value="retouche :p" />
+    <option name="LAST_COMMIT_MESSAGE" value="retouche :p" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1219,13 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/stock.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1802">
@@ -1275,34 +1244,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Form/StockType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding>
-            <element signature="e#44#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/production.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="63" column="111" lean-forward="false" selection-start-line="63" selection-start-column="99" selection-end-line="63" selection-end-column="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="167" column="7" lean-forward="false" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="43" column="26" lean-forward="false" selection-start-line="42" selection-start-column="11" selection-end-line="44" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1313,84 +1258,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="177" column="142" lean-forward="false" selection-start-line="177" selection-start-column="142" selection-end-line="177" selection-end-column="142" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="369" column="46" lean-forward="false" selection-start-line="369" selection-start-column="46" selection-end-line="369" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Machine.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="1768">
           <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Block.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="58" column="7" lean-forward="false" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding>
-            <element signature="e#50#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="190" column="0" lean-forward="false" selection-start-line="190" selection-start-column="0" selection-end-line="190" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="295" column="0" lean-forward="false" selection-start-line="295" selection-start-column="0" selection-end-line="295" selection-end-column="0" />
-          <folding>
-            <element signature="e#50#107#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/notification.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/alert.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
+        <state relative-caret-position="1020">
           <caret line="60" column="47" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/notification.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="28" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="97" column="116" lean-forward="false" selection-start-line="97" selection-start-column="116" selection-end-line="97" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Form/StockType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1717">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="44" column="39" lean-forward="false" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/stock/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="177" column="155" lean-forward="false" selection-start-line="177" selection-start-column="147" selection-end-line="177" selection-end-column="155" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="72" column="14" lean-forward="false" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="318" column="50" lean-forward="false" selection-start-line="318" selection-start-column="50" selection-end-line="318" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Block.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="171" column="29" lean-forward="false" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Entity/Alert.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="81" column="73" lean-forward="false" selection-start-line="81" selection-start-column="73" selection-end-line="81" selection-end-column="73" />
+        <state relative-caret-position="228">
+          <caret line="81" column="42" lean-forward="false" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Usine/MachineBundle/Controller/StockController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="142" column="13" lean-forward="false" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
           <folding />
         </state>
       </provider>
