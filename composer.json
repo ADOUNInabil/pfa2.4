@@ -8,6 +8,7 @@
             "AppBundle\\": "src/AppBundle",
             "Usine\\MachineBundle\\": "src/Usine/MachineBundle"
 
+
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
@@ -19,6 +20,7 @@
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "friendsofsymfony/user-bundle": "~2.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",

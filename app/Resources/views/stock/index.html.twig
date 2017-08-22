@@ -12,17 +12,21 @@
 
 <style>
     #chartdiv {
-        position : absolute ;
-        width		: 100%;
+        position : relative ;
+        width		: 115%;
         height		: 500px;
         font-size	: 11px;
+        display: block;
+
     }
 
 
     #chartdiv1 {
+        position : relative ;
         width		: 100%;
         height		: 500px;
         font-size	: 11px;
+        display: block;
     }
 </style>
 
@@ -209,7 +213,7 @@
 
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 col-xs-12">
             <!-- BEGIN CHART PORTLET-->
             <div class="portlet light ">
                 <div class="portlet-title">
@@ -235,7 +239,7 @@
             <!-- END CHART PORTLET-->
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
             <div class="portlet light ">
                 <div class="portlet-title">
                     <div class="caption">
@@ -263,8 +267,8 @@
     <script>
         var chartData = [ {
             "category": "Capacity left",
-            "value1": 30,
-            "value2": 70
+            "value1": {{ stock_actuel }},
+            "value2": {{ stock_capacity - stock_actuel }}
         } ];
 
 
@@ -311,14 +315,9 @@
                 "axisAlpha": 0,
                 "labelOffset": 40,
                 "gridAlpha": 0
-            },
-            "export": {
-                "enabled": true
             }
         } );
-    </script>
 
-    <script>
         var chart1 = AmCharts.makeChart( "chartdiv1", {
             "type": "pie",
             "theme": "light",

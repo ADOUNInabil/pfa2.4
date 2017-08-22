@@ -25,7 +25,7 @@ class DefaultController extends Controller
      */
     public function welcomeAction()
     {
-        //fonction pour réinstaller la date pour aujourd'hui (pour le dev)
+        //fonction pour réinstaller la date machine pour aujourd'hui (pour le dev)
         $date =date('Y-m-d',strtotime("-1 days"));
 
         $time = new \DateTime();
@@ -35,14 +35,14 @@ class DefaultController extends Controller
         foreach($machines as $machine){
             $datem =$machine->getDate();
             $datemachine=$datem->format('Y-m-d');
-           if ($datemachine == $date){
+          // if ($datemachine == $date){
 
                 $id = $machine->getId();
                $em=$this->getDoctrine()->getManager();
                $m = $em->getRepository('MachineBundle:Machine')->find($id);
                 $m->setDate($time);
                 $em->flush();
-            }
+            //}
         }
 
         return $this->render('MachineBundle:Default:welcome.html.twig');
@@ -71,7 +71,8 @@ class DefaultController extends Controller
 
                     $blockhier = new Block() ;
                     $blockhier->setNomBlock($b->getNomBlock());
-                    $blockhier->setNbPieceTotale($b->getNbPieceTotale());
+                    $random = random_int(100, 180);
+                    $blockhier->setNbPieceTotale($random);
                     $blockhier->setObjectif($b->getObjectif());
                     $blockhier->setStatu($b->getStatu());
                     $blockhier->setDate($b->getDate());
@@ -109,7 +110,15 @@ class DefaultController extends Controller
     {
 
 
-        $alerts= $this->getDoctrine()->getRepository('MachineBundle:Alert')->findAll();
+        //$alerts= $this->getDoctrine()->getRepository('MachineBundle:Alert')->findAll(array(),array('date' => 'DESC'));
+        $em = $this->getDoctrine()->getManager();
+        $alert= $this->getDoctrine()->getRepository('MachineBundle:Alert')->findAll();
+        $qb = $em->createQueryBuilder();
+        $qb->select('Alert');
+        $qb->from('MachineBundle:Alert','Alert');
+        $qb->orderBy('Alert.date','DESC');
+
+        $alerts = $qb->getQuery()->getResult();
         return $this->render('MachineBundle:admin:alert.html.twig',array('alerts'=>$alerts));
     }
 
@@ -126,9 +135,6 @@ class DefaultController extends Controller
      */
     public function detailsAction($nom)
     {
-
-
-
 
         $date = new \DateTime('-1 days');
         $date->format('Y-m-d');
@@ -155,7 +161,7 @@ class DefaultController extends Controller
     }
     else if($nom==2) {
 
-        return $this->render('MachineBundle:admin:detailsL.html.twig', array('blocknom' => $nom,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces));
+        return $this->render('MachineBundle:admin:detailsL.html.twig', array('blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
     }
     else if($nom==3){
         return $this->render('MachineBundle:admin:detailsellipse.html.twig');
@@ -164,7 +170,7 @@ class DefaultController extends Controller
         return $this->render('MachineBundle:admin:detailsO.html.twig');
     }
     else if($nom==5){
-        return $this->render('MachineBundle:admin:detailsL16.html.twig', array('blocknom' => $nom,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces));
+        return $this->render('MachineBundle:admin:detailsL16.html.twig', array('blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
     }
     }
 
