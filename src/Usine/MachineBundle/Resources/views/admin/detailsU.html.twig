@@ -341,7 +341,7 @@
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-
+<!--
 <script>
 
     AmCharts.makeChart("chartdiv",
@@ -396,31 +396,58 @@
                 }
             ],
             "dataProvider": [
-                {
-                    "category": "Janvier",
-                    "column-1": 100,
-                    "column-2": 120
-                },
-                {
-                    "category": "Février",
-                    "column-1": 105,
-                    "column-2": 122
-                },
-                {
-                    "category": "Mars",
-                    "column-1": 110,
-                    "column-2": 110
-                },
-                {
-                    "category": "Avril",
-                    "column-1": 113,
-                    "column-2": 120
-                }
+
+
             ]
         }
     );
 
 
-</script>
+</script>-->
+
+    <script>
+        var chart = AmCharts.makeChart("chartdiv", {
+            "theme": "light",
+            "type": "serial",
+            "chartScrollbar": {
+                "enabled": true
+            },
+            "dataProvider": [ {% for blockh in blockhistory %}
+                {
+                    "country": {{ blockh.date|date("d") }}+"/"+{{ blockh.date|date("m") }},
+                    "year2004": {{ blockh.nbPieceTotale }},
+                    "year2005": {{ blockh.objectif }}
+                },
+                {% endfor %} ],
+            "startDuration": 1,
+            "graphs": [{
+                "balloonText": "Nombre piéce totale [[category]] : <b>[[value]]</b>",
+                "fillAlphas": 0.9,
+                "lineAlpha": 0.2,
+                "title": "Nombre piéce totale",
+                "type": "column",
+                "valueField": "year2004"
+            }, {
+                "balloonText": "Objectif [[category]] : <b>[[value]]</b>",
+                "fillAlphas": 0.9,
+                "lineAlpha": 0.2,
+                "title": "Objectif",
+                "type": "column",
+                "clustered":false,
+                "columnWidth":0.5,
+                "valueField": "year2005"
+            }],
+            "plotAreaFillAlphas": 0.1,
+            "categoryField": "country",
+            "categoryAxis": {
+                "gridPosition": "start"
+            },
+            "legend": {
+                "enabled": true,
+                "useGraphSettings": true
+            }
+
+        });
+    </script>
 
 {% endblock %}

@@ -271,3 +271,17 @@
 
 
 }
+.login-bg {
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	width: 792px;
+	height: 712.8px;
+	max-height: none;
+	max-width: none;
+	z-index: -999999;
+	left: 0px;
+	top: -92.4px;
+
+}

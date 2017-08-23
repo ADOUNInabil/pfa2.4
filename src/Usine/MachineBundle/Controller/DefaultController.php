@@ -13,7 +13,7 @@ use Usine\MachineBundle\Entity\Block;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/a")
      */
     public function indexAction()
     {
@@ -21,7 +21,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/welcome")
+     * @Route("/")
      */
     public function welcomeAction()
     {
@@ -148,6 +148,7 @@ class DefaultController extends Controller
         $blocknom=$blockactuel->getNomBlock();
         //$blocktotal=$blockactuel->getNbPieceTotale();
         $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->findOneBy(array('nomBlock'=>$blocknom,'date'=>$date));
+        //$blockshistory = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('nomBlock'=>$blocknom));
         $nb_pieces = 0;
       //$m = $block->getMachine();
        foreach($machines as $machine){
@@ -155,13 +156,21 @@ class DefaultController extends Controller
 
         }
 
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $qb->select('Block')
+            ->from('MachineBundle:Block','Block')
+            ->where('Block.nomBlock = :nom')
+            ->orderBy('Block.date', 'ASC')
+            ->setParameter('nom', $blocknom);
+        $blockshistory = $qb->getQuery()->getResult();
 
         if($nom==1){
-        return $this->render('MachineBundle:admin:detailsU.html.twig', array('blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
+        return $this->render('MachineBundle:admin:detailsU.html.twig', array('blockhistory'=>$blockshistory ,'blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
     }
     else if($nom==2) {
 
-        return $this->render('MachineBundle:admin:detailsL.html.twig', array('blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
+        return $this->render('MachineBundle:admin:detailsL.html.twig', array('blockhistory'=>$blockshistory ,'blockactuel' => $blockactuel,'machines'=>$machines, 'date'=>$time,'nbP'=>$nb_pieces,'block'=>$block));
     }
     else if($nom==3){
         return $this->render('MachineBundle:admin:detailsellipse.html.twig');
