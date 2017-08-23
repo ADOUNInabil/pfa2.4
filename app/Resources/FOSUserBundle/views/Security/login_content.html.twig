@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="col-sm-8 text-right">
                                     <div class="forgot-password">
-                                        <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                                        <a href='{{ path('fos_user_resetting_request') }}' id="forget-password" class="forget-password">Forgot Password?</a>
                                     </div>
 
                                     <input class="btn green" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />

@@ -1,5 +1,14 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+<div class="user-login-5">
+    <div class="row bs-reset">
+        <div class="col-md-6 bs-reset mt-login-5-bsfix">
+            <div class="login-bg" style="height:100vh">
+                <img src="{{ asset('templates/assets/pages/img/login/bg1.jpg') }}" style ="position: absolute;margin: 0px;padding: 0px;border: none;width: 100%;height: 100%;max-height: none;max-width: none;z-index: -999999;left: 0px;"/> </div>
+        </div>
+        <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
+            <div class="login-content">
+
 <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
     <div>
         <label for="username">{{ 'resetting.request.username'|trans }}</label>
@@ -9,3 +18,9 @@
         <input type="submit" value="{{ 'resetting.request.submit'|trans }}" />
     </div>
 </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

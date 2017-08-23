@@ -287,7 +287,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_user_profile_1.html">
+                                <a href="{{ path('fos_user_profile_show') }}">
                                     <i class="icon-user"></i> My Profile </a>
                             </li>
                             <li>
@@ -402,10 +402,10 @@
 
                 <li class="nav-item  ">
 
-                    <a href="{{ path('utilisateur') }}" class="nav-link ">
+                    <a href="{{ path('fos_user_profile_show') }}" class="nav-link ">
 
-                        <i class="icon-users "></i>
-                        <span class="title">Gestion utilisateurs</span>
+                        <i class="icon-user "></i>
+                        <span class="title">Profile</span>
                         <span class="arrow"></span>
                     </a>
                 </li>

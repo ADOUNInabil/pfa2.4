@@ -1,3 +1,4 @@
+
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div>
@@ -15,4 +16,9 @@
 <div class="fos_user_user_show">
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>{{ 'Derniére connexion'|trans }}: {{ user.lastLogin|date('d-m-Y') }}</p>
+
 </div>
+
+<button class="btn btn-danger" onclick="location.href='{{ url('fos_user_change_password') }}'"> Changer mot de pass</button>
+<button class="btn btn-primary" onclick="location.href='{{ url('fos_user_profile_edit') }}'"> Editer profile</button>
