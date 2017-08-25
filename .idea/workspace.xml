@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a6419c8f-d1d6-4266-891e-e86a43a6cb1b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" afterPath="$PROJECT_DIR$/app/Resources/FOSUserBundle/views/Profile/show_content.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/listUser.html.twig" afterPath="$PROJECT_DIR$/src/Usine/MachineBundle/Resources/views/admin/listUser.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/assets/layouts/layout2/css/custom.css" afterPath="$PROJECT_DIR$/web/templates/assets/layouts/layout2/css/custom.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -843,7 +840,7 @@
       <workItem from="1503478974381" duration="5703000" />
       <workItem from="1503532345898" duration="10283000" />
       <workItem from="1503589900999" duration="10568000" />
-      <workItem from="1503652336185" duration="6417000" />
+      <workItem from="1503652336185" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1501845982561</created>
@@ -943,11 +940,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503625877689</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="edit profile">
+      <created>1503658961967</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1503658961967</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247401000" />
+    <option name="totallyTimeSpent" value="247494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
@@ -994,7 +998,8 @@
     <MESSAGE value="login edit" />
     <MESSAGE value="les roles" />
     <MESSAGE value="photo profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="photo profile" />
+    <MESSAGE value="edit profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit profile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
