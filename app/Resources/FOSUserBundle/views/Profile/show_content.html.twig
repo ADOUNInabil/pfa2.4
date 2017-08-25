@@ -17,6 +17,7 @@
     <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     <p>{{ 'Derniére connexion'|trans }}: {{ user.lastLogin|date('d-m-Y') }}</p>
+    <img src="{{ asset('uploads/users/'~user.id~'/'~user.path) }}" width="100" height="100" alt>
 
 </div>
 
