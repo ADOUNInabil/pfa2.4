@@ -14,6 +14,7 @@ services:
             arguments: []
             tags:
                 - { name: kernel.event_subscriber }
+                - { name: kernel.event_listener, event: fos_user.registration.completed, method: onKernelResponse, priority: 255 }
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services

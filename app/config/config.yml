@@ -79,8 +79,8 @@ fos_user:
     firewall_name: main
     user_class: Usine\MachineBundle\Entity\User
     from_email:
-        address: "nabiladouni@gmail.com"
-        sender_name: "Nabil"
+        address: noreply@example.com
+        sender_name: Demo App
     registration:
             form:
                 type: Usine\MachineBundle\Form\RegistrationType

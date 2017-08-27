@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<div>
+    <input type="submit" />
+</div>
+{{ form_end(form) }}
+
+{% endblock %}

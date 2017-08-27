@@ -11,9 +11,16 @@ namespace Usine\MachineBundle\EventListener;
 use FOS\UserBundle\FOSUserEvents ;
 use FOS\UserBundle\Event\FormEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\Response;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 class RegistrationListener implements EventSubscriberInterface
 {
+
+    public function onKernelResponse(FilterUserResponseEvent $event)
+    {
+        $event->stopPropagation();
+    }
 
     public static function getSubscribedEvents()
     {
