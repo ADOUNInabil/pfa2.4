@@ -1,8 +1,118 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit portlet-form ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Modifier profile </span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <!-- BEGIN FORM-->
+                {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+                <div class="form-body">
+
+                    <div class="form-group form-md-line-input">
+
+
+
+
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-3 control-label" for="form_control_1">Nom :
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9">
+                                {{ form_widget(form.nom , { 'attr': {'class': 'form-control'} }) }}
+
+                                <div class="form-control-focus"> </div>
+                            </div>
+                        </div>
+                        <br><br>
+
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-3 control-label" for="form_control_1">Prenom :
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9">
+                                {{ form_widget(form.prenom , { 'attr': {'class': 'form-control'} }) }}
+                                <div class="form-control-focus"> </div>
+                            </div>
+                        </div>
+
+                        <br><br>
+
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-3 control-label" for="form_control_1">Email :
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9">
+                                {{ form_widget(form.email , { 'attr': {'class': 'form-control'} }) }}
+
+                                <div class="form-control-focus"> </div>
+
+                            </div>
+                        </div>
+                        {% if not form.vars.valid %}
+                            <div class="alert alert-danger">
+                                <strong>Alert!</strong> {{ form_errors(edit_form) }}.
+
+                            </div>
+
+
+                        {% endif %}
+                        <br><br>
+
+
+                        <div class="form-group form-md-line-input">
+                            <label class="col-md-3 control-label" for="form_control_1">Nom utilisateur:
+                                <span class="required">*</span>
+                            </label>
+                            <div class="col-md-9">
+                                {{ form_widget(form.username , { 'attr': {'class': 'form-control'} }) }}
+                                <div class="form-control-focus"> </div>
+                            </div>
+                        </div>
+
+                        <br><br>
+
+
+
+                        <div>
+                            <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+                        </div>
+                        <br><br>
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+                {{ form_end(form) }}
+
+
+                <!-- END FORM-->
+            </div>
+        </div>
     </div>
-{{ form_end(form) }}
+</div>
+
+
+
+
+
+
+
+

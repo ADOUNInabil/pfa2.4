@@ -4,6 +4,10 @@ parameters:
     #parameter_name: value
 
 services:
+    app.profile.form.type:
+            class: Usine\MachineBundle\Form\ProfileFormType
+            tags:
+                - { name: form.type, alias: app_user_profile }
     app.form.registration:
             class: Usine\MachineBundle\Form\RegistrationType
             tags:

@@ -64,6 +64,24 @@ class DefaultController extends Controller
             $nom =$b->getNomBlock();
             $datbl =$b->getDate();
             $dateblock=$datbl->format('Y-m-d');
+            $block_exist = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('nomBlock'=>$nom,'date'=>$datebd));
+            if($block_exist){}
+            else {
+                $blockhier = new Block() ;
+                $blockhier->setNomBlock($nom);
+                $random = random_int(100, 180);
+                $blockhier->setNbPieceTotale($random);
+                $blockhier->setObjectif($b->getObjectif());
+                $blockhier->setStatu($b->getStatu());
+                $blockhier->setDate($datebd);
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($blockhier);
+                $em->flush();
+            }
+            /*
+            $nom =$b->getNomBlock();
+            $datbl =$b->getDate();
+            $dateblock=$datbl->format('Y-m-d');
             $block_exist = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('nomBlock'=>$nom,'date'=>$time));
             if($block_exist){}
             else {
@@ -81,6 +99,7 @@ class DefaultController extends Controller
                     $em->flush();
 
                 }}
+            */
             $id = $b->getId();
             $nb_pieces = 0;
             $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");

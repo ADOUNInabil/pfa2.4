@@ -84,3 +84,6 @@ fos_user:
     registration:
             form:
                 type: Usine\MachineBundle\Form\RegistrationType
+    profile:
+            form:
+                type: Usine\MachineBundle\Form\ProfileFormType

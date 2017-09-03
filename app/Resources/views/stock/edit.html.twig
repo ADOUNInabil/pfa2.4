@@ -96,7 +96,11 @@
                                     <div class="col-md-offset-3 col-md-9">
                                         <input class="btn btn-primary" type="submit" value="Edit" />
                                         <a class="btn default" href="{{ path('stock_index') }}">Back to the list</a>
+                                        {% if app.user.fonction=='Utilisateur' %}
+                                        <button type="button" disabled class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
+                                        {% else %}
                                         <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

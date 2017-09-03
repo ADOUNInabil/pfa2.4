@@ -180,8 +180,12 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-primary" onclick="location.href='{{path('stock_edit', { 'id': stock.id }) }}'">Editer</button>
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
+                                                {% if app.user.fonction=='Utilisateur' %}
+                                                <button  disabled type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
+                                                {% else %}
+                                                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.href='{{path('deleteprod', { 'id': stock.id }) }}'">Supprimer</button>
 
+                                                {% endif %}
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                             </div>
                                         </div>
