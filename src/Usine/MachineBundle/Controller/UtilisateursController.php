@@ -28,6 +28,24 @@ class UtilisateursController extends Controller
         return $this->render('MachineBundle:admin:listuser.html.twig', array('users' =>   $users));
     }
 
+
+    /**
+     * @Route("/userlistnotif",name="userlistnotif")
+     */
+    public function userlistnotifAction()
+    {
+        $userManager = $this->get('fos_user.user_manager');
+        $users = $userManager->findUsers();
+
+        $em=$this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $qb->select('count(User)');
+        $qb->from('MachineBundle:User','User');
+
+        $countuser = $qb->getQuery()->getSingleScalarResult();
+        return $this->render('MachineBundle:admin:utilisateur.html.twig', array('users' =>   $users ,'countuser'=>$countuser));
+    }
+
     /**
      * @Route("/user/{id}", name="userdelete")
      */

@@ -56,9 +56,78 @@ class DefaultController extends Controller
         //$date = strftime("%y-%m-%d", mktime( date('m'), date('d')-1, date('y')));
         $datebd = new \DateTime('-1 days');
         $datebd->format('Y-m-d');
-        $date =date('Y-m-d',strtotime("-1 days"));
+        $date =date('Y-m-d',strtotime("0 days"));
+        $date_hier =date('Y-m-d',strtotime("-1 days"));
         $time = new \DateTime();
         $time->format('Y-m-d');
+
+
+
+        ///////////////// new methode
+        ///
+         $repository = $this->getDoctrine()
+            ->getRepository('MachineBundle:Block');
+
+
+        $query = $repository->createQueryBuilder('b')
+            ->where('b.id > 0')
+            ->andWhere('b.id < 6')
+            ->getQuery();
+
+        $blocks = $query->getResult();
+
+
+
+        //$blocks= $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('date'=>$time));
+        foreach($blocks as $block) {
+            $id = $block->getId();
+            $nb_pieces = 0;
+            $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");
+            $machines = $repository->findBy(array('block' => $id, 'date' => $time));
+            if ($machines) {
+                foreach ($machines as $machine) {
+                    $nb_pieces += $machine->getNbPieceBonne();
+
+                }
+                $em = $this->getDoctrine()->getManager();
+                $bl = $em->getRepository('MachineBundle:Block')->find($id);
+
+                $bl->setNbPieceTotale($nb_pieces);
+                $bl->setDate($time);
+                $em->flush();
+            }
+        }
+
+
+            $blocks_hier = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('date'=>$datebd));
+            if ($blocks_hier) {}
+            else {
+                foreach($blocks as $b) {
+                    $blockhier = new Block();
+                    $blockhier->setNomBlock($b->getNomBlock());
+                    $random = random_int(100, 180);
+                    $blockhier->setNbPieceTotale($random);
+                    $blockhier->setObjectif($b->getObjectif());
+                    $blockhier->setStatu($b->getStatu());
+                    $blockhier->setDate($datebd);
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($blockhier);
+                    $em->flush();
+                }
+            }
+
+
+
+        //////////////////
+
+
+
+
+
+
+
+        /*
+
         $block = $this->getDoctrine()->getRepository('MachineBundle:Block')->findAll();
         foreach($block as $b){
             $nom =$b->getNomBlock();
@@ -99,7 +168,7 @@ class DefaultController extends Controller
                     $em->flush();
 
                 }}
-            */
+
             $id = $b->getId();
             $nb_pieces = 0;
             $repository = $this->getDoctrine()->getRepository("MachineBundle:Machine");
@@ -117,8 +186,8 @@ class DefaultController extends Controller
             $em->flush();
             }
 
-        }
-        $blocks = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('date'=>$time));
+        } */
+        //$blocks = $this->getDoctrine()->getRepository('MachineBundle:Block')->findBy(array('date'=>$time));
         return $this->render('MachineBundle:admin:production.html.twig',array('blocks' => $blocks));
     }
 

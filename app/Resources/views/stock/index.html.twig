@@ -204,10 +204,15 @@
             </div>
 
 
-                    <button onclick="location.href='{{ path('stock_new') }}'" id="sample_editable_1_new" class="btn sbold red"> Add New
+            {% if app.user.fonction=='Utilisateur' %}
+                    <button disabled onclick="location.href='{{ path('stock_new') }}'" id="sample_editable_1_new" class="btn sbold red"> Add New
                         <i class="fa fa-plus"></i>
                     </button>
-
+            {% else %}
+                <button onclick="location.href='{{ path('stock_new') }}'" id="sample_editable_1_new" class="btn sbold red"> Add New
+                    <i class="fa fa-plus"></i>
+                </button>
+            {% endif %}
 
         </div>
     </div>

@@ -47,12 +47,17 @@
                                     <i class="fa fa-share"></i> View </a>
 
 
+
                                 {% if alert.date < date('-1days') %}
 
 
+                                {% if app.user.fonction=='Utilisateur' %}
+                                    <button disabled class="btn btn-circle red-haze btn-outline sbold uppercase" onclick="supprimernotif({{ alert.id }})" >supprimer</button>
+                                {% else %}
                                     <button class="btn btn-circle red-haze btn-outline sbold uppercase" onclick="supprimernotif({{ alert.id }})" >supprimer</button>
 
-                                    {% endif %}
+                                {% endif %}
+                                {% endif %}
 
                             </td>
                             {% endif %}
